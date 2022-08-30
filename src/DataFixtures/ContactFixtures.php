@@ -20,14 +20,14 @@ class ContactFixtures extends AbstractBaseFixtures
      */
     public function loadData(ObjectManager $manager): void
     {
-        $this->createMany(20, 'categories', function ($i) {
+        $this->createMany(20, 'contact', function ($i) {
             $contact = new Contact();
             $contact->setName($this->faker->word);
             $contact->setAddress($this->faker->word);
             $contact->setPhone($this->faker->word);
             $contact->setSurname($this->faker->word);
 
-            return $category;
+            return $contact;
         });
 
         $manager->flush();

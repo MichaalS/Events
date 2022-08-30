@@ -21,10 +21,10 @@ class EventFixtures extends AbstractBaseFixtures
      */
     public function loadData(ObjectManager $manager): void
     {
-        $this->createMany(20, 'categories', function ($i) {
+        $this->createMany(20, 'event', function ($i) {
             $event = new Event();
             $event->setTitle($this->faker->word);
-            $event->setCategory($this->getRandomReference('category'));
+            $event->setCategory($this->getRandomReference('categories'));
             $event->setDate($this->faker->dateTimeBetween('-100 days', '-1 days'));
             $event->setPlace($this->faker->word);
 
@@ -34,6 +34,12 @@ class EventFixtures extends AbstractBaseFixtures
         $manager->flush();
     }
 
+    /**
+     * This method must return an array of fixtures classes
+     * on which the implementing class depends on.
+     *
+     * @return array Array of dependencies
+     */
     public function getDependencies(): array
     {
         return [Category::class];

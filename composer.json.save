@@ -17,8 +17,7 @@
         "sensio/framework-extra-bundle": "^6.1",
         "symfony/asset": "5.4.x",
         "symfony/console": "5.4.x",
-        "symfony/doctrine-messenger": "5.4.*",
-        "symfony/dotenv": "5.4.x",
+        "symfony/dotenv": "5.4.*",
         "symfony/expression-language": "5.4.x",
         "symfony/flex": "^1.17|^2",
         "symfony/form": "5.4.x",
@@ -47,25 +46,22 @@
         "twig/twig": "^3.0"
     },
     "require-dev": {
-      "dama/doctrine-test-bundle": "^7.1",
-      "doctrine/doctrine-fixtures-bundle": "^3.4",
-      "escapestudios/symfony2-coding-standard": "^3.12",
-      "fakerphp/faker": "^1.19",
-      "friendsofphp/php-cs-fixer": "^3.8",
-      "phpunit/phpunit": "^9.5",
-      "squizlabs/php_codesniffer": "^3.7",
-      "symfony/browser-kit": "5.4.x",
-      "symfony/css-selector": "5.4.x",
-      "symfony/debug-bundle": "5.4.x",
-      "symfony/maker-bundle": "^1.40",
-      "symfony/phpunit-bridge": "^5.4",
-      "symfony/stopwatch": "5.4.x",
-      "symfony/web-profiler-bundle": "5.4.x"
+        "doctrine/doctrine-fixtures-bundle": "^3.4",
+        "fakerphp/faker": "^1.19",
+        "friendsofphp/php-cs-fixer": "^3.8",
+        "phpunit/phpunit": "^9.5",
+        "symfony/browser-kit": "5.4.x",
+        "symfony/css-selector": "5.4.x",
+        "symfony/debug-bundle": "5.4.x",
+        "symfony/maker-bundle": "^1.40",
+        "symfony/phpunit-bridge": "^5.4",
+        "symfony/stopwatch": "5.4.x",
+        "symfony/web-profiler-bundle": "5.4.x"
     },
     "config": {
         "allow-plugins": {
             "composer/package-versions-deprecated": true,
-            "symfony/flex": true,
+M-W            "symfony/flex": true,
             "symfony/runtime": true
         },
         "optimize-autoloader": true,
