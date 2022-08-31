@@ -22,6 +22,9 @@ class CategoryService implements CategoryServiceInterface
      */
     private CategoryRepository $categoryRepository;
 
+    /**
+     * Event repository.
+     */
     private EventRepository $EventRepository;
 
     /**
@@ -47,25 +50,17 @@ class CategoryService implements CategoryServiceInterface
      * Get paginated list.
      *
      * @param int         $page Page number
-     * @param string|null $name name
      *
      * @return PaginationInterface<string, mixed> Paginated list
      */
     public function getPaginatedList(int $page, ?string $name = null): PaginationInterface
     {
-        if (is_null($name)) {
-            return $this->paginator->paginate(
-                $this->categoryRepository->queryAll(),
-                $page,
-                CategoryRepository::PAGINATOR_ITEMS_PER_PAGE
-            );
-        }
-
         return $this->paginator->paginate(
-            $this->categoryRepository->queryLikeName($name),
+            $this->categoryRepository->queryAll(),
             $page,
             CategoryRepository::PAGINATOR_ITEMS_PER_PAGE
         );
+
     }
 
     /**

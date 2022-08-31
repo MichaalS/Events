@@ -101,18 +101,4 @@ class EventService implements EventServiceInterface
     {
         return $this->eventRepository->findOneById($id);
     }
-
-    /**
-     * Can Event be deleted?
-     *
-     * @param Event $event Event entity
-     *
-     * @return bool Result
-     */
-    public function canBeDeleted(Event $event): bool
-    {
-        $result = $this->EventRepository->countByEvent($event);
-
-        return !($result > 0);
-    }
 }

@@ -55,28 +55,10 @@ class CategoryRepository extends ServiceEntityRepository
     public function queryAll(): QueryBuilder
     {
         return $this->getOrCreateQueryBuilder()
-            ->select('partial category.{id, createdAt, updatedAt, name}')
-            ->orderBy('category.updatedAt', 'DESC');
+            ->select('partial category.{id, $updated_at, $created_at, title, code}')
+            ->orderBy('category.$updated_at', 'DESC');
     }
 
-    /**
-     * Query records like name.
-     *
-     * @param string $name name who we search
-     *
-     * @return QueryBuilder Query builder
-     */
-    public function queryLikeName(string $name): QueryBuilder
-    {
-        $qb = $this->getOrCreateQueryBuilder();
-
-        return $qb
-            ->select('partial category.{id, createdAt, updatedAt, name}')
-            ->where(
-                $qb->expr()->like('category.name', $qb->expr()->literal('%'.$name.'%'))
-            )
-            ->orderBy('category.updatedAt', 'DESC');
-    }
 
     /**
      * Delete entity.

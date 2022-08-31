@@ -17,11 +17,9 @@ interface CategoryServiceInterface
      * Get paginated list.
      *
      * @param int         $page Page number
-     * @param string|null $name name
-     *
      * @return PaginationInterface<string, mixed> Paginated list
      */
-    public function getPaginatedList(int $page, ?string $name): PaginationInterface;
+    public function getPaginatedList(int $page): PaginationInterface;
 
     /**
      * Save entity.

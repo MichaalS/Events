@@ -30,19 +30,10 @@ class CategoryType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder->add(
-            'title',
+            'name',
             TextType::class,
             [
                 'label' => 'label.title',
-                'required' => true,
-                'attr' => ['max_length' => 64],
-            ]
-        );
-        $builder->add(
-            'code',
-            TextType::class,
-            [
-                'label' => 'label.code',
                 'required' => true,
                 'attr' => ['max_length' => 64],
             ]

@@ -7,7 +7,6 @@ namespace App\Service;
 
 use App\Entity\User;
 use App\Repository\UserRepository;
-use DateTimeImmutable;
 use Knp\Component\Pager\Pagination\PaginationInterface;
 use Knp\Component\Pager\PaginatorInterface;
 
@@ -62,11 +61,6 @@ class UserService implements UserServiceInterface
      */
     public function save(User $user): void
     {
-        if (is_null($user->getId())) {
-            $user->setCreatedAt(new DateTimeImmutable());
-        }
-        $user->setUpdatedAt(new DateTimeImmutable());
-
         $this->userRepository->save($user);
     }
 

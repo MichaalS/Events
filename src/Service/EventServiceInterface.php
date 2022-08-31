@@ -17,11 +17,10 @@ interface EventServiceInterface
      * Get paginated list.
      *
      * @param int         $page Page number
-     * @param string|null $name name
      *
      * @return PaginationInterface<string, mixed> Paginated list
      */
-    public function getPaginatedList(int $page, ?string $name): PaginationInterface;
+    public function getPaginatedList(int $page): PaginationInterface;
 
     /**
      * Save entity.
@@ -29,13 +28,4 @@ interface EventServiceInterface
      * @param Event $event Event entity
      */
     public function save(Event $event): void;
-
-    /**
-     * Can Event be deleted?
-     *
-     * @param Event $event Event entity
-     *
-     * @return bool Result
-     */
-    public function canBeDeleted(Event $event): bool;
 }

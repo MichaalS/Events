@@ -22,7 +22,7 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 class CategoryController extends AbstractController
 {
     /**
-     * Category service.
+     * Category service
      */
     private CategoryServiceInterface $categoryService;
 
@@ -51,13 +51,13 @@ class CategoryController extends AbstractController
      *
      * @return Response HTTP response
      */
-    #[Route('/', name: 'app_category_index', methods: 'GET')]
+    #[Route(name: 'app_category_index', methods: 'GET')]
     public function index(Request $request): Response
     {
         $pagination = $this->categoryService->getPaginatedList(
             $request->query->getInt('page', 1)
         );
-        echo "dupa";
+
         return $this->render('category/index.html.twig', ['category_pagination' => $pagination]);
     }
 
@@ -105,7 +105,7 @@ class CategoryController extends AbstractController
                 $this->translator->trans('message.created_successfully')
             );
 
-            return $this->redirectToRoute('category_index');
+            return $this->redirectToRoute('app_category_index');
         }
 
         return $this->render(
@@ -127,7 +127,7 @@ class CategoryController extends AbstractController
     {
         $form = $this->createForm(CategoryType::class, $category, [
             'method' => 'PUT',
-            'action' => $this->generateUrl('app_category_edit', ['id' => $category->getId()]),
+            'action' => $this->generateUrl('category_edit', ['id' => $category->getId()]),
         ]);
         $form->handleRequest($request);
 
@@ -139,7 +139,7 @@ class CategoryController extends AbstractController
                 $this->translator->trans('message.created_successfully')
             );
 
-            return $this->redirectToRoute('category_index');
+            return $this->redirectToRoute('app_category_index');
         }
 
         return $this->render(
@@ -150,6 +150,7 @@ class CategoryController extends AbstractController
             ]
         );
     }
+
 
     /**
      * Delete action.
@@ -176,7 +177,7 @@ class CategoryController extends AbstractController
             $category,
             [
                 'method' => 'DELETE',
-                'action' => $this->generateUrl('category_delete', ['id' => $category->getId()]),
+                'action' => $this->generateUrl('app_category_delete', ['id' => $category->getId()]),
             ]
         );
         $form->handleRequest($request);
