@@ -28,6 +28,10 @@
                             <a class="nav-link"
                                href="{{ path('app_contact_index') }}"> {{ 'title.contact_list'|trans }}</a>
                         </li>
+                        <li class="nav-item active">
+                            <a class="nav-link"
+                               href="{{ path('app_category_index') }}"> {{ 'title.category_list'|trans }}</a>
+                        </li>
                         {% if is_granted('ROLE_ADMIN') %}
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ path('app_user_index') }}">{{ 'title.user_list'|trans }}</a>
