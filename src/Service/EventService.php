@@ -20,8 +20,6 @@ class EventService implements EventServiceInterface
      */
     private EventRepository $eventRepository;
 
-    private EventRepository $EventRepository;
-
     /**
      * Paginator.
      */
@@ -30,8 +28,8 @@ class EventService implements EventServiceInterface
     /**
      * Constructor.
      *
-     * @param EventRepository $EventRepository reposytory
-     * @param PaginatorInterface    $paginator             Paginator
+     * @param EventRepository $eventRepository
+     * @param PaginatorInterface $paginator Paginator
      */
     public function __construct(EventRepository $eventRepository, PaginatorInterface $paginator)
     {
@@ -48,13 +46,11 @@ class EventService implements EventServiceInterface
      */
     public function getPaginatedList(int $page): PaginationInterface
     {
-
         return $this->paginator->paginate(
             $this->eventRepository->queryAll(),
             $page,
             EventRepository::PAGINATOR_ITEMS_PER_PAGE
         );
-
     }
 
     /**

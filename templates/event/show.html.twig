@@ -1,34 +1,53 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Event{% endblock %}
+{% block title %}
+    {{ 'title.event_details'|trans({'%id%': event.id|default('')}) }}
+{% endblock %}
 
 {% block body %}
-    <h1>Event</h1>
-
-    <table class="table">
-        <tbody>
+    <h1>{{ 'title.event_details'|trans({'%id%': event.id|default('')}) }}</h1>
+    {% if event is defined and event|length %}
+        <table class="table">
+            <tbody>
             <tr>
-                <th>Id</th>
+                <th>{{ 'label.id'|trans }}</th>
                 <td>{{ event.id }}</td>
             </tr>
             <tr>
-                <th>Date</th>
-                <td>{{ event.date ? event.date|date('Y-m-d H:i:s') : '' }}</td>
+                <th>{{ 'label.title'|trans }}</th>
+                <td>{{ event.title }}</td>
             </tr>
             <tr>
-                <th>Place</th>
+                <th>{{ 'label.place'|trans }}</th>
                 <td>{{ event.place }}</td>
             </tr>
             <tr>
-                <th>Title</th>
-                <td>{{ event.title }}</td>
+                <th>{{ 'label.category'|trans }}</th>
+                <td>
+                    <a href="{{ url('category_show', {id: event.category.id}) }}">
+                        {{ event.category.title }}
+                    </a>
+                </td>
             </tr>
-        </tbody>
-    </table>
 
-    <a href="{{ path('app_event_index') }}">back to list</a>
-
-    <a href="{{ path('app_event_edit', {'id': event.id}) }}">edit</a>
-
-    {{ include('event/_delete_form.html.twig') }}
+            </tbody>
+        </table>
+        <p>
+            <a href="{{ url('app_event_index') }}" title="{{ 'action.back_to_list'|trans }}">
+                {{ 'action.back_to_list'|trans }}
+            </a>
+        </p>
+        <div class="btn btn-light">
+            <a href="{{ url('app_event_edit', {id: event.id}) }}" title="{{ 'action.edit'|trans }}">
+                {{ 'action.edit'|trans }}</a>
+        </div>
+        <div class="btn btn-light">
+            <a href="{{ url('app_event_delete', {id: event.id}) }}" title="{{ 'action.delete'|trans }}">
+                {{ 'action.delete'|trans }}</a>
+        </div>
+    {% else %}
+        <p>
+            {{ 'message.record_not_found'|trans }}
+        </p>
+    {% endif %}
 {% endblock %}

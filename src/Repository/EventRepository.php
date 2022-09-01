@@ -45,10 +45,10 @@ class EventRepository extends ServiceEntityRepository
     {
         return $this->getOrCreateQueryBuilder()
             ->select(
-          'partial event.{id, place, title}',
+                'partial event.{id, place, title}',
                 'partial category.{id, title}'
             )
-            ->leftJoin('Event.category', 'category')
+            ->leftJoin('event.category', 'category')
             ->orderBy('event.title', 'DESC');
     }
 
@@ -86,7 +86,6 @@ class EventRepository extends ServiceEntityRepository
     public function countByCategory(Category $category): int
     {
         $qb = $this->getOrCreateQueryBuilder();
-
         try {
             return $qb->select($qb->expr()->countDistinct('event.id'))
                 ->where('event.category = :category')
@@ -107,7 +106,7 @@ class EventRepository extends ServiceEntityRepository
      */
     private function getOrCreateQueryBuilder(?QueryBuilder $queryBuilder = null): QueryBuilder
     {
-        return $queryBuilder ?? $this->createQueryBuilder('category');
+        return $queryBuilder ?? $this->createQueryBuilder('event');
     }
 
 }

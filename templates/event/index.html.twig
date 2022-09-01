@@ -1,39 +1,63 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Event index{% endblock %}
+{% block title %}
+    {{ 'title.event_list'|trans }}
+{% endblock %}
 
 {% block body %}
-    <h1>Event index</h1>
+    <h1>{{ 'title.event_list'|trans }}</h1>
+    {% if pagination is defined and pagination.items|length %}
 
-    <table class="table">
-        <thead>
+        <div class="navigation text-center">
+            {{ knp_pagination_render(pagination) }}
+        </div>
+        <table class="table table-striped">
+            <thead>
             <tr>
-                <th>DupaId</th>
-                <th>Date</th>
-                <th>Place</th>
-                <th>Title</th>
-                <th>actions</th>
+                <th>{{ knp_pagination_sortable(pagination, 'label.id'|trans, 'event.id') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'label.title'|trans, 'event.title') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'label.place'|trans, 'event.place') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'label.category'|trans, 'event.category') }}</th>
+                <th>{{ 'label.action'|trans }}</th>
             </tr>
-        </thead>
-        <tbody>
-        {% for event in pagination %}
-            <tr>
-                <td>{{ event.id }}</td>
-                <td>{{ event.date ? event.date|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ event.place }}</td>
-                <td>{{ event.title }}</td>
-                <td>
-                    <a href="{{ path('app_event_show', {'id': event.id}) }}">show</a>
-                    <a href="{{ path('app_event_edit', {'id': event.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="5">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+            {% for item in pagination.items %}
+                <tr>
+                    <td>{{ item.id }}</td>
+                    <td>{{ item.title }}</td>
+                    <td>{{ item.place }}</td>
+                    <td>
+                        <a href="{{ url('category_show', {id: item.category.id}) }}">
+                            {{ item.category.title }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{{ url('app_event_show', {id: item.id}) }}" title="{{ 'action.view'|trans }}">
+                            {{ 'action.view'|trans }}
+                        </a>
+                        <a href="{{ url('app_event_edit', {id: item.id}) }}" title="{{ 'action.edit'|trans }}">
+                            {{ 'action.edit'|trans }}</a>
+                        <a href="{{ url('app_event_delete', {id: item.id}) }}" title="{{ 'action.delete'|trans }}">
+                            {{ 'action.delete'|trans }}</a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
 
-    <a href="{{ path('app_event_new') }}">Create new</a>
+        <div class="navigation text-center">
+            {{ knp_pagination_render(pagination) }}
+        </div>
+
+    {% else %}
+        {% include 'default/_single_alert_message.html.twig' with {
+            type: 'warning',
+            message: 'message.empty_list'|trans
+        } %}
+    {% endif %}
+    <div class="btn btn-light">
+        <a href="{{ url('app_event_new') }}" title="{{ 'action.create'|trans }}">
+            {{ 'action.create'|trans }}</a>
+    </div>
 {% endblock %}

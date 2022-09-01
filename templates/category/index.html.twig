@@ -34,6 +34,10 @@
                         <a href="{{ url('category_show', {id: item.id}) }}" title="{{ 'action.view'|trans }}">
                             {{ 'action.view'|trans }}
                         </a>
+                        <a href="{{ url('app_category_edit', {id: item.id}) }}" title="{{ 'action.edit'|trans }}">
+                        3    {{ 'action.edit'|trans }}</a>
+                        <a href="{{ url('app_category_delete', {id: item.id}) }}" title="{{ 'action.delete'|trans }}">
+                            {{ 'action.delete'|trans }}</a>
                     </td>
                 </tr>
             {% endfor %}
