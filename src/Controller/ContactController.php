@@ -112,7 +112,7 @@ class ContactController extends AbstractController
         );
     }
 
-    #[Route('/{id}', name: 'app_contact_delete', methods: ['POST'])]
+    #[Route('/{id}/delete', name: 'app_contact_delete', methods: ['GET|DELETE'])]
     public function delete(Request $request, Contact $contact): Response
     {
         $form = $this->createForm(FormType::class, $contact, [

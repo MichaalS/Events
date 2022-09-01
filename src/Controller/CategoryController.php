@@ -127,7 +127,7 @@ class CategoryController extends AbstractController
     {
         $form = $this->createForm(CategoryType::class, $category, [
             'method' => 'PUT',
-            'action' => $this->generateUrl('category_edit', ['id' => $category->getId()]),
+            'action' => $this->generateUrl('app_category_edit', ['id' => $category->getId()]),
         ]);
         $form->handleRequest($request);
 
@@ -166,7 +166,7 @@ class CategoryController extends AbstractController
         if (!$this->categoryService->canBeDeleted($category)) {
             $this->addFlash(
                 'warning',
-                $this->translator->trans('message.category_contains_transactions')
+                $this->translator->trans('message.category_contains_contact')
             );
 
             return $this->redirectToRoute('app_category_index');

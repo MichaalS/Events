@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Event;
-use App\Form\type\EventType;
+use App\Form\Type\EventType;
 use App\Repository\EventRepository;
 use App\Service\EventServiceInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -101,7 +101,7 @@ class EventController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'app_event_delete', methods: ['POST'])]
+    #[Route('/{id}/delete', name: 'app_event_delete', methods: ['GET|DELETE'])]
     public function delete(Request $request, Event $event, EventRepository $eventRepository): Response
     {
         if ($this->isCsrfTokenValid('delete'.$event->getId(), $request->request->get('_token'))) {

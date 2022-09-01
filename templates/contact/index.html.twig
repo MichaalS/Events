@@ -35,9 +35,11 @@
                             {{ 'action.view'|trans }}
                         </a>
                         <a href="{{ url('app_contact_edit', {id: item.id}) }}" title="{{ 'action.edit'|trans }}">
-                            {{ 'action.edit'|trans }}</a>
+                            {{ 'action.edit'|trans }}
+                        </a>
                         <a href="{{ url('app_contact_delete', {id: item.id}) }}" title="{{ 'action.delete'|trans }}">
-                            {{ 'action.delete'|trans }}</a>
+                            {{ 'action.delete'|trans }}
+                        </a>
                     </td>
                 </tr>
             {% endfor %}
