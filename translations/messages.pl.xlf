@@ -38,10 +38,6 @@
                 <source>action.back_to_list</source>
                 <target>Powrót do listy</target>
             </trans-unit>
-            <trans-unit id="title.event_list">
-                <source>title.event_list</source>
-                  <target>Transakcje</target>
-            </trans-unit>
             <trans-unit id="title.user_details">
                 <source>title.user_details</source>
                 <target>Szczegóły użytkownika</target>
@@ -93,10 +89,7 @@
                     <source>label.contact</source>
             <target>Portfele</target>
         </trans-unit>
-            <trans-unit id="label.payment">
-                <source>label.payment</source>
-                <target>Metody płatności</target>
-            </trans-unit>
+
             <trans-unit id="label.operation">
                 <source>label.operation</source>
                 <target>Operacje</target>
@@ -149,14 +142,8 @@
                 <source>title.operation_create</source>
                 <target>Dodaj operacje</target>
             </trans-unit>
-            <trans-unit id="title.payment_create">
-                <source>title.payment_create</source>
-                <target>Dodaj płatność</target>
-            </trans-unit>
-            <trans-unit id="title.payment_delete">
-                <source>title.payment_delete</source>
-                <target>Usuń płatność</target>
-            </trans-unit>
+
+
             <trans-unit id="title.category_create">
                 <source>title.category_create</source>
                 <target>Dodaj kategorię</target>
@@ -165,22 +152,12 @@
                 <source>title.category_edit</source>
                 <target>Edytuj kategorię</target>
             </trans-unit>
-            <trans-unit id="title.event_create">
-                <source>title.event_create</source>
-                    <target>Dodaj transakcje</target>
-            </trans-unit>
-            <trans-unit id="title.event_details">
-                    <source>title.event_details</source>
-                <target>Szczegóły transakcji</target>
-            </trans-unit>
+
             <trans-unit id="title.contact_details">
                     <source>title.contact_details</source>
                     <target>Szczegóły portfela</target>
             </trans-unit>
-            <trans-unit id="title.payment_list">
-                    <source>title.payment_list</source>
-                    <target>Metoda płatności</target>
-            </trans-unit>
+
             <trans-unit id="title.tag_list">
                     <source>title.tag_list</source>
                     <target>Tagi</target>
@@ -193,10 +170,7 @@
                     <source>title.tag_details</source>
                     <target>Szczegóły tagu</target>
             </trans-unit>
-            <trans-unit id="title.payment_details">
-                    <source>title.payment_details</source>
-                    <target>Szczegóły metody płatności</target>
-            </trans-unit>
+
             <trans-unit id="label.tags">
                     <source>label.tags</source>
                     <target>Tag</target>
@@ -277,10 +251,7 @@
                 <source>title.operation_delete</source>
                 <target>Usuń operację</target>
             </trans-unit>
-            <trans-unit id="title.event_delete">
-                <source>title.event_delete</source>
-                <target>Usuń transakcje</target>
-            </trans-unit>
+
             <trans-unit id="message.category_contains_events">
                 <source>message.category_contains_events</source>
                 <target>Kategoria przypisana do transakcji.</target>
@@ -313,10 +284,7 @@
                 <source>message.created_successfully</source>
                 <target>Rekord dodany pomyślnie.</target>
             </trans-unit>
-            <trans-unit id="title.payment_edit">
-                <source>title.payment_edit</source>
-                <target>Edytuj płatność.</target>
-            </trans-unit>
+
             <trans-unit id="label.none">
                 <source>label.none</source>
                 <target>Brak</target>
@@ -431,14 +399,6 @@
             <trans-unit id="2">
                 <source>message.user_contains_tasks</source>
                 <target>nie można usunąć użytkownika dopóki ma przypisane tranzakcje</target>
-            </trans-unit>
-            <trans-unit id="message.operation_contains_events">
-                <source>message.operation_contains_events</source>
-                <target>operacja zawiera transakcje</target>
-            </trans-unit>
-            <trans-unit id="message.payment_contains_events">
-                <source>message.payment_contains_events</source>
-                <target>płatność zawiera transakcje</target>
             </trans-unit>
 
         </body>

@@ -34,10 +34,7 @@
                 <source>action.back_to_list</source>
                 <target>Back to list</target>
             </trans-unit>
-            <trans-unit id="title.transaction_list">
-                  <source>title.transaction_list</source>
-                <target>Transactions</target>
-            </trans-unit>
+
             <trans-unit id="action.logout">
                 <source>action.logout</source>
                 <target>Log out</target>
@@ -78,10 +75,7 @@
                 <source>label.constact</source>
                 <target>constacts</target>
             </trans-unit>
-            <trans-unit id="label.payment">
-                <source>label.payment</source>
-                <target>Payments</target>
-            </trans-unit>
+
             <trans-unit id="label.operation">
                 <source>label.operation</source>
                 <target>Operations</target>
@@ -130,14 +124,8 @@
                 <source>title.operation_create</source>
                 <target>Operation create</target>
             </trans-unit>
-            <trans-unit id="title.payment_create">
-                <source>title.payment_create</source>
-                <target>Payment create</target>
-            </trans-unit>
-            <trans-unit id="title.payment_delete">
-                <source>title.payment_delete</source>
-                <target>Payment delete</target>
-            </trans-unit>
+
+
             <trans-unit id="title.category_create">
                 <source>title.category_create</source>
                 <target>Category create</target>
@@ -158,10 +146,7 @@
                 <source>title.constact_details</source>
                 <target>constact details</target>
             </trans-unit>
-            <trans-unit id="title.payment_list">
-                <source>title.payment_list</source>
-                <target>Payment</target>
-            </trans-unit>
+
             <trans-unit id="title.tag_list">
                 <source>title.tag_list</source>
                 <target>Tag</target>
@@ -183,10 +168,7 @@
                 <source>title.tag_details</source>
                 <target>Tag details</target>
             </trans-unit>
-            <trans-unit id="title.payment_details">
-                <source>title.payment_details</source>
-                <target>Payment details</target>
-            </trans-unit>
+
             <trans-unit id="label.tags">
                 <source>label.tags</source>
                 <target>Tag</target>
@@ -366,11 +348,6 @@
                 <target>comment</target>
             </trans-unit>
 
-            <trans-unit id="title.payment_edit">
-                <source>title.payment_edit</source>
-                <target>payment edit</target>
-            </trans-unit>
-
             <trans-unit id="action.search">
                 <source>action.search</source>
                 <target>Search</target>
@@ -413,10 +390,6 @@
             <trans-unit id="message.operation_contains_events">
                 <source>message.operation_contains_events</source>
                 <target>operation contains eventss</target>
-            </trans-unit>
-            <trans-unit id="message.payment_contains_events">
-                <source>message.payment_contains_events</source>
-                <target>payment contains events</target>
             </trans-unit>
 
             <trans-unit id="action_delete">
