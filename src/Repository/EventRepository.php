@@ -36,23 +36,45 @@ class EventRepository extends ServiceEntityRepository
         parent::__construct($registry, Event::class);
     }
 
-    public function add(Event $entity, bool $flush = false): void
+    /**
+     * Query all records.
+     *
+     * @return QueryBuilder Query builder
+     */
+    public function queryAll(): QueryBuilder
     {
-        $this->getEntityManager()->persist($entity);
-
-        if ($flush) {
-            $this->getEntityManager()->flush();
-        }
+        return $this->getOrCreateQueryBuilder()
+            ->select(
+          'partial event.{id, place, title}',
+                'partial category.{id, title}'
+            )
+            ->leftJoin('Event.category', 'category')
+            ->orderBy('event.title', 'DESC');
     }
 
-    public function delete(Event $entity, bool $flush = false): void
-    {
-        $this->getEntityManager()->remove($entity);
 
-        if ($flush) {
-            $this->getEntityManager()->flush();
-        }
+    /**
+     * Delete entity.
+     *
+     * @param Event $event Event entity
+     */
+    public function delete(Event $event): void
+    {
+        $this->_em->remove($event);
+        $this->_em->flush();
     }
+
+    /**
+     * Save entity.
+     *
+     * @param Event $event Event entity
+     */
+    public function save(Event $event): void
+    {
+        $this->_em->persist($event);
+        $this->_em->flush();
+    }
+
 
     /**
      * Count transaction by category.

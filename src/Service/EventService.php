@@ -7,7 +7,6 @@ namespace App\Service;
 
 use App\Entity\Event;
 use App\Repository\EventRepository;
-use DateTimeImmutable;
 use Knp\Component\Pager\Pagination\PaginationInterface;
 use Knp\Component\Pager\PaginatorInterface;
 
@@ -44,25 +43,18 @@ class EventService implements EventServiceInterface
      * Get paginated list.
      *
      * @param int         $page Page number
-     * @param string|null $name name
      *
      * @return PaginationInterface<string, mixed> Paginated list
      */
-    public function getPaginatedList(int $page, ?string $name = null): PaginationInterface
+    public function getPaginatedList(int $page): PaginationInterface
     {
-        if (is_null($name)) {
-            return $this->paginator->paginate(
-                $this->eventRepository->queryAll(),
-                $page,
-                EventRepository::PAGINATOR_ITEMS_PER_PAGE
-            );
-        }
 
         return $this->paginator->paginate(
-            $this->eventRepository->queryLikeName($name),
+            $this->eventRepository->queryAll(),
             $page,
             EventRepository::PAGINATOR_ITEMS_PER_PAGE
         );
+
     }
 
     /**
@@ -72,11 +64,6 @@ class EventService implements EventServiceInterface
      */
     public function save(Event $event): void
     {
-        if (is_null($event->getId())) {
-            $event->setCreatedAt(new DateTimeImmutable());
-        }
-        $event->setUpdatedAt(new DateTimeImmutable());
-
         $this->eventRepository->save($event);
     }
 

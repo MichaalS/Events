@@ -15,9 +15,10 @@
             <thead>
             <tr>
                 <th>{{ knp_pagination_sortable(category_pagination, 'label.id'|trans, 'category.id') }}</th>
-                <th>{{ knp_pagination_sortable(category_pagination, 'label.name'|trans, 'category.name') }}</th>
-                <th>{{ knp_pagination_sortable(category_pagination, 'label.updatedAt'|trans, 'category.updatedAt') }}</th>
-                <th>{{ knp_pagination_sortable(category_pagination, 'label.createdAt'|trans, 'category.createdAt') }}</th>
+                <th>{{ knp_pagination_sortable(category_pagination, 'label.title'|trans, 'category.title') }}</th>
+                <th>{{ knp_pagination_sortable(category_pagination, 'label.code'|trans, 'category.code') }}</th>
+                <th>{{ knp_pagination_sortable(category_pagination, 'label.updated_at'|trans, 'category.updated_at') }}</th>
+                <th>{{ knp_pagination_sortable(category_pagination, 'label.created_at'|trans, 'category.created_at') }}</th>
                 <th>{{ 'label.action'|trans }}</th>
             </tr>
             </thead>
@@ -25,9 +26,10 @@
             {% for item in category_pagination.items %}
                 <tr>
                     <td>{{ item.id }}</td>
-                    <td>{{ item.name }}</td>
-                    <td>{{ item.updatedAt |format_date('long') }}</td>
-                    <td>{{ item.createdAt |format_date('long') }}</td>
+                    <td>{{ item.title }}</td>
+                    <td>{{ item.code }}</td>
+                    <td>{{ item.updated_at |format_date('long') }}</td>
+                    <td>{{ item.created_at |format_date('long') }}</td>
                     <td>
                         <a href="{{ url('category_show', {id: item.id}) }}" title="{{ 'action.view'|trans }}">
                             {{ 'action.view'|trans }}
@@ -49,7 +51,7 @@
         } %}
     {% endif %}
     <div class="btn btn-light">
-        <a href="{{ url('category_create') }}" title="{{ 'action.create'|trans }}">
+        <a href="{{ url('app_category_create') }}" title="{{ 'action.create'|trans }}">
                 {{ 'action.create'|trans }}</a>
     </div>
 {% endblock %}

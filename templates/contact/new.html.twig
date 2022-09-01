@@ -1,11 +1,6 @@
-{% extends 'base.html.twig' %}
-
-{% block title %}New Contact{% endblock %}
-
-{% block body %}
-    <h1>Create new Contact</h1>
-
-    {{ include('contact/_form.html.twig') }}
-
-    <a href="{{ path('app_contact_index') }}">back to list</a>
-{% endblock %}
+{% include 'default/_form.html.twig' with {
+    page_title: 'title.contact_create'|trans,
+    form: form,
+    submit_label: 'action.save'|trans,
+    back_to_list_path: 'contact_index',
+} %}

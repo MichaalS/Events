@@ -8,7 +8,7 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
+                <th>DupaId</th>
                 <th>Date</th>
                 <th>Place</th>
                 <th>Title</th>
@@ -16,7 +16,7 @@
             </tr>
         </thead>
         <tbody>
-        {% for event in events %}
+        {% for event in pagination %}
             <tr>
                 <td>{{ event.id }}</td>
                 <td>{{ event.date ? event.date|date('Y-m-d H:i:s') : '' }}</td>
