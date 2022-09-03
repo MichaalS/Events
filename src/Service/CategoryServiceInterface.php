@@ -16,7 +16,8 @@ interface CategoryServiceInterface
     /**
      * Get paginated list.
      *
-     * @param int         $page Page number
+     * @param int $page Page number
+     *
      * @return PaginationInterface<string, mixed> Paginated list
      */
     public function getPaginatedList(int $page): PaginationInterface;

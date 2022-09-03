@@ -32,7 +32,7 @@
             </trans-unit>
             <trans-unit id="title.category_details">
                 <source>title.category_details</source>
-                <target>Szczegóły kategorii #%id%</target>
+                <target>Szczegóły kategorii </target>
             </trans-unit>
             <trans-unit id="action.back_to_list">
                 <source>action.back_to_list</source>
@@ -90,10 +90,7 @@
             <target>Portfele</target>
         </trans-unit>
 
-            <trans-unit id="label.operation">
-                <source>label.operation</source>
-                <target>Operacje</target>
-            </trans-unit>
+
             <trans-unit id="label.roles">
                 <source>label.roles</source>
                 <target>Role</target>
@@ -126,10 +123,6 @@
                      <source>label.updated_at</source>
                      <target>Data aktualizacji</target>
             </trans-unit>
-            <trans-unit id="title.contact_list">
-                    <source>title.contact_list</source>
-                    <target>Portfele</target>
-            </trans-unit>
             <trans-unit id="title.contact_delete">
                     <source>title.contact_delete</source>
                     <target>Portfel szczegóły</target>
@@ -152,40 +145,13 @@
                 <source>title.category_edit</source>
                 <target>Edytuj kategorię</target>
             </trans-unit>
-
-            <trans-unit id="title.contact_details">
-                    <source>title.contact_details</source>
-                    <target>Szczegóły portfela</target>
-            </trans-unit>
-
-            <trans-unit id="title.tag_list">
-                    <source>title.tag_list</source>
-                    <target>Tagi</target>
-            </trans-unit>
             <trans-unit id="title.user_list">
                     <source>title.user_list</source>
                     <target>Użytkownicy</target>
             </trans-unit>
-            <trans-unit id="title.tag_details">
-                    <source>title.tag_details</source>
-                    <target>Szczegóły tagu</target>
-            </trans-unit>
-
-            <trans-unit id="label.tags">
-                    <source>label.tags</source>
-                    <target>Tag</target>
-            </trans-unit>
             <trans-unit id="label.email">
                 <source>label.email</source>
                 <target>email</target>
-            </trans-unit>
-            <trans-unit id="title.operation_list">
-                    <source>title.operation_list</source>
-                    <target>Operacje</target>
-            </trans-unit>
-            <trans-unit id="title.operation_details">
-                    <source>title.operation_details</source>
-                    <target>Szczegóły operacji</target>
             </trans-unit>
             <trans-unit id="title.login">
                     <source>title.login</source>
@@ -370,11 +336,6 @@
                 <target>edycja użytkownika</target>
             </trans-unit>
 
-            <trans-unit id="title.tag_edit">
-                <source>title.tag_edit</source>
-                <target>edycja tagu</target>
-            </trans-unit>
-
             <trans-unit id="title.user_delete">
                 <source>title.user_delete</source>
                 <target>usuń użytkownika</target>
@@ -400,7 +361,56 @@
                 <source>message.user_contains_tasks</source>
                 <target>nie można usunąć użytkownika dopóki ma przypisane tranzakcje</target>
             </trans-unit>
+            <trans-unit id="title.event_details">
+                <source>title.event_details</source>
+                <target>szczegóły wydarzenia</target>
+            </trans-unit>
 
+<!--            do ANG-->
+
+
+            <trans-unit id="title.contact_list">
+                <source>title.contact_list</source>
+                <target>lista kontaktów</target>
+            </trans-unit>
+
+            <trans-unit id="title.event_list">
+                <source>title.event_list</source>
+                <target>lista wydarzeń </target>
+            </trans-unit>
+            <trans-unit id="title.contact">
+                <source>title.contact</source>
+                <target>kontakt</target>
+            </trans-unit>
+            <trans-unit id="label.surname">
+                <source>label.surname</source>
+                <target>nazwisko</target>
+            </trans-unit>
+            <trans-unit id="label.address">
+                <source>label.address</source>
+                <target>adres</target>
+            </trans-unit>
+            <trans-unit id="label.phone">
+                <source>label.phone</source>
+                <target>telefon</target>
+            </trans-unit>
+            <trans-unit id="label.title">
+                <source>label.title</source>
+                <target>tytuł</target>
+            </trans-unit>
+            <trans-unit id="label.code">
+                <source>label.code</source>
+                <target>kod</target>
+            </trans-unit>
+            <trans-unit id="label.place">
+                <source>label.place</source>
+                <target>miejsce</target>
+            </trans-unit>
+
+            <trans-unit id="title.contact_details">
+                <source>title.contact_details</source>
+                <target>szczegóły kontaktu</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

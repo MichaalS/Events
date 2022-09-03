@@ -58,4 +58,3 @@ class UserType extends AbstractType
         return 'user';
     }
 }
-

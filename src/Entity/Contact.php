@@ -43,6 +43,7 @@ class Contact
 
     /**
      * @param string $name new name
+     *
      * @return $this obj
      */
     public function setName(string $name): self
@@ -62,6 +63,7 @@ class Contact
 
     /**
      * @param string $surname new surname
+     *
      * @return $this obj
      */
     public function setSurname(string $surname): self
@@ -81,6 +83,7 @@ class Contact
 
     /**
      * @param string|null $address new adrees
+     *
      * @return $this this object
      */
     public function setAddress(?string $address): self
@@ -100,6 +103,7 @@ class Contact
 
     /**
      * @param string|null $phone phone number
+     *
      * @return $this $this object
      */
     public function setPhone(?string $phone): self
@@ -107,5 +111,13 @@ class Contact
         $this->phone = $phone;
 
         return $this;
+    }
+
+    /**
+     * @return string|null return ojb email
+     */
+    public function __toString()
+    {
+        return $this->name;
     }
 }

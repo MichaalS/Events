@@ -28,8 +28,9 @@ class ContactService implements ContactServiceInterface
     /**
      * Constructor.
      *
-     * @param ContactRepository $contactRepository Repository coś tam costar
-     * @param PaginatorInterface $paginator Paginator
+     * @param ContactRepository  $contactRepository Repository coś tam
+     *                                              costar
+     * @param PaginatorInterface $paginator         Paginator
      */
     public function __construct(ContactRepository $contactRepository, PaginatorInterface $paginator)
     {
@@ -40,7 +41,7 @@ class ContactService implements ContactServiceInterface
     /**
      * Get paginated list.
      *
-     * @param int         $page Page number
+     * @param int $page Page number
      *
      * @return PaginationInterface<string, mixed> Paginated list
      */

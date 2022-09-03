@@ -35,9 +35,9 @@ class CategoryService implements CategoryServiceInterface
     /**
      * Constructor.
      *
-     * @param CategoryRepository    $categoryRepository    Category repository
-     * @param EventRepository $EventRepository reposytory
-     * @param PaginatorInterface    $paginator             Paginator
+     * @param CategoryRepository $categoryRepository Category repository
+     * @param EventRepository    $EventRepository    reposytory
+     * @param PaginatorInterface $paginator          Paginator
      */
     public function __construct(CategoryRepository $categoryRepository, EventRepository $EventRepository, PaginatorInterface $paginator)
     {
@@ -49,7 +49,7 @@ class CategoryService implements CategoryServiceInterface
     /**
      * Get paginated list.
      *
-     * @param int         $page Page number
+     * @param int $page Page number
      *
      * @return PaginationInterface<string, mixed> Paginated list
      */
@@ -60,7 +60,6 @@ class CategoryService implements CategoryServiceInterface
             $page,
             CategoryRepository::PAGINATOR_ITEMS_PER_PAGE
         );
-
     }
 
     /**

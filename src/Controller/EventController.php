@@ -29,7 +29,7 @@ class EventController extends AbstractController
 
     /**
      * @param EventServiceInterface $eventService costam
-     * @param TranslatorInterface $translator costam
+     * @param TranslatorInterface   $translator   costam
      */
     public function __construct(EventServiceInterface $eventService, TranslatorInterface $translator)
     {
@@ -48,6 +48,7 @@ class EventController extends AbstractController
                 $request->query->getInt('page', 1),
                 $this->getUser()
             );
+
         return $this->render('event/index.html.twig', ['pagination' => $pagination]);
     }
 

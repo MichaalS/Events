@@ -410,6 +410,48 @@
                 <target>user contains tasks</target>
             </trans-unit>
 
+            <trans-unit id="title.contact_list">
+                <source>title.contact_list</source>
+                <target>contact list</target>
+            </trans-unit>
+
+            <trans-unit id="title.event_list">
+                <source>title.event_list</source>
+                <target>event list</target>
+            </trans-unit>
+            <trans-unit id="title.contact">
+                <source>title.contact</source>
+                <target>contact</target>
+            </trans-unit>
+            <trans-unit id="label.surname">
+                <source>label.surname</source>
+                <target>surname</target>
+            </trans-unit>
+            <trans-unit id="label.address">
+                <source>label.address</source>
+                <target>address</target>
+            </trans-unit>
+            <trans-unit id="label.phone">
+                <source>label.phone</source>
+                <target>phone</target>
+            </trans-unit>
+            <trans-unit id="label.title">
+                <source>label.title</source>
+                <target>title</target>
+            </trans-unit>
+            <trans-unit id="label.code">
+                <source>label.code</source>
+                <target>code</target>
+            </trans-unit>
+            <trans-unit id="label.place">
+                <source>label.place</source>
+                <target>place</target>
+            </trans-unit>
+
+            <trans-unit id="title.contact_details">
+                <source>title.contact_details</source>
+                <target>contact details</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

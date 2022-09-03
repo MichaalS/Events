@@ -108,5 +108,4 @@ class EventRepository extends ServiceEntityRepository
     {
         return $queryBuilder ?? $this->createQueryBuilder('event');
     }
-
 }

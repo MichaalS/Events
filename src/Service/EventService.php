@@ -28,8 +28,8 @@ class EventService implements EventServiceInterface
     /**
      * Constructor.
      *
-     * @param EventRepository $eventRepository
-     * @param PaginatorInterface $paginator Paginator
+     * @param EventRepository    $eventRepository
+     * @param PaginatorInterface $paginator       Paginator
      */
     public function __construct(EventRepository $eventRepository, PaginatorInterface $paginator)
     {
@@ -40,7 +40,7 @@ class EventService implements EventServiceInterface
     /**
      * Get paginated list.
      *
-     * @param int         $page Page number
+     * @param int $page Page number
      *
      * @return PaginationInterface<string, mixed> Paginated list
      */

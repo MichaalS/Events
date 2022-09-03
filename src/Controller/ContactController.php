@@ -30,7 +30,7 @@ class ContactController extends AbstractController
 
     /**
      * @param ContactServiceInterface $contactService
-     * @param TranslatorInterface $translator
+     * @param TranslatorInterface     $translator
      */
     public function __construct(ContactServiceInterface $contactService, TranslatorInterface $translator)
     {
@@ -79,15 +79,16 @@ class ContactController extends AbstractController
         return $this->render(
             'contact/show.html.twig',
             ['contact' => $contact,
-        ]);
+            ]
+        );
     }
 
-    #[Route('/{id}/edit', name: 'app_contact_edit', methods: ['GET', 'POST'])]
+    #[Route('/{id}/edit', name: 'app_contact_edit', methods: ['GET', 'PUT'])]
     public function edit(Request $request, Contact $contact, ContactRepository $contactRepository): Response
     {
         $form = $this->createForm(ContactType::class, $contact, [
             'method' => 'PUT',
-            'action' => $this->generateUrl('app_contact_edit', ['id' => $contact->getId()])
+            'action' => $this->generateUrl('app_contact_edit', ['id' => $contact->getId()]),
 
         ]);
         $form->handleRequest($request);
@@ -112,13 +113,25 @@ class ContactController extends AbstractController
         );
     }
 
-    #[Route('/{id}/delete', name: 'app_contact_delete', methods: ['GET|DELETE'])]
+    /**
+     * Delete action.
+     *
+     * @param Request  $request  HTTP request
+     * @param Contact $contact Contact entity
+     *
+     * @return Response HTTP response
+     */
+    #[Route('/{id}/delete', name: 'app_contact_delete', requirements: ['id' => '[1-9]\d*'], methods: 'GET|DELETE')]
     public function delete(Request $request, Contact $contact): Response
     {
-        $form = $this->createForm(FormType::class, $contact, [
-            'method' => 'DELETE',
-            'action' => $this->generateUrl('app_contact_delete', ['id' => $contact->getId()]),
-        ]);
+        $form = $this->createForm(
+            FormType::class,
+            $contact,
+            [
+                'method' => 'DELETE',
+                'action' => $this->generateUrl('app_contact_delete', ['id' => $contact->getId()]),
+            ]
+        );
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

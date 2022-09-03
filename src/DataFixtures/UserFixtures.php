@@ -44,6 +44,7 @@ class UserFixtures extends AbstractBaseFixtures
                     'admin1234'
                 )
             );
+
             return $user;
         });
 
