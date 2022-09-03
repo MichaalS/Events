@@ -25,16 +25,26 @@ class Contact
     #[ORM\Column(length: 32, nullable: true)]
     private ?string $phone = null;
 
+    /**
+     * @return int|null id
+     */
     public function getId(): ?int
     {
         return $this->id;
     }
 
+    /**
+     * @return string|null name
+     */
     public function getName(): ?string
     {
         return $this->name;
     }
 
+    /**
+     * @param string $name new name
+     * @return $this obj
+     */
     public function setName(string $name): self
     {
         $this->name = $name;
@@ -42,11 +52,18 @@ class Contact
         return $this;
     }
 
+    /**
+     * @return string|null surname
+     */
     public function getSurname(): ?string
     {
         return $this->surname;
     }
 
+    /**
+     * @param string $surname new surname
+     * @return $this obj
+     */
     public function setSurname(string $surname): self
     {
         $this->surname = $surname;
@@ -54,11 +71,18 @@ class Contact
         return $this;
     }
 
+    /**
+     * @return string|null address as string
+     */
     public function getAddress(): ?string
     {
         return $this->address;
     }
 
+    /**
+     * @param string|null $address new adrees
+     * @return $this this object
+     */
     public function setAddress(?string $address): self
     {
         $this->address = $address;
@@ -66,11 +90,18 @@ class Contact
         return $this;
     }
 
+    /**
+     * @return string|null phone number as string
+     */
     public function getPhone(): ?string
     {
         return $this->phone;
     }
 
+    /**
+     * @param string|null $phone phone number
+     * @return $this $this object
+     */
     public function setPhone(?string $phone): self
     {
         $this->phone = $phone;
