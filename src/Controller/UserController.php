@@ -1,4 +1,7 @@
 <?php
+/**
+ * User Controller.
+ */
 
 namespace App\Controller;
 
@@ -10,9 +13,17 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+/**
+ * Class UserController.
+ */
 #[Route('/user')]
 class UserController extends AbstractController
 {
+    /**
+     * @param UserRepository $userRepository param
+     *
+     * @return Response return
+     */
     #[Route('/', name: 'app_user_index', methods: ['GET'])]
     public function index(UserRepository $userRepository): Response
     {
@@ -21,6 +32,12 @@ class UserController extends AbstractController
         ]);
     }
 
+    /**
+     * @param Request        $request        param
+     * @param UserRepository $userRepository param
+     *
+     * @return Response return
+     */
     #[Route('/new', name: 'app_user_new', methods: ['GET', 'POST'])]
     public function new(Request $request, UserRepository $userRepository): Response
     {
@@ -40,6 +57,11 @@ class UserController extends AbstractController
         ]);
     }
 
+    /**
+     * @param User $user param
+     *
+     * @return Response return
+     */
     #[Route('/{id}', name: 'app_user_show', methods: ['GET'])]
     public function show(User $user): Response
     {
@@ -48,6 +70,13 @@ class UserController extends AbstractController
         ]);
     }
 
+    /**
+     * @param Request        $request        param
+     * @param User           $user           param
+     * @param UserRepository $userRepository param
+     *
+     * @return Response return
+     */
     #[Route('/{id}/edit', name: 'app_user_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, User $user, UserRepository $userRepository): Response
     {
@@ -66,6 +95,13 @@ class UserController extends AbstractController
         ]);
     }
 
+    /**
+     * @param Request        $request        param
+     * @param User           $user           param
+     * @param UserRepository $userRepository param
+     *
+     * @return Response return
+     */
     #[Route('/{id}/delete', name: 'app_user_delete', methods: ['GET|DELETE'])]
     public function delete(Request $request, User $user, UserRepository $userRepository): Response
     {

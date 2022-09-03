@@ -6,6 +6,9 @@ use App\Repository\EventRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
+/**
+ * Category entity.
+ */
 #[ORM\Entity(repositoryClass: EventRepository::class)]
 class Event
 {
@@ -26,16 +29,27 @@ class Event
     #[ORM\Column(length: 255)]
     private ?string $title = null;
 
+    /**
+     * @return int|null getter
+     */
     public function getId(): ?int
     {
         return $this->id;
     }
 
+    /**
+     * @return Category|null getter
+     */
     public function getCategory(): ?Category
     {
         return $this->category;
     }
 
+    /**
+     * @param Category|null $category setter
+     *
+     * @return $this object
+     */
     public function setCategory(?Category $category): self
     {
         $this->category = $category;
@@ -43,11 +57,19 @@ class Event
         return $this;
     }
 
+    /**
+     * @return \DateTimeInterface|null getter
+     */
     public function getDate(): ?\DateTimeInterface
     {
         return $this->date;
     }
 
+    /**
+     * @param \DateTimeInterface $date setter
+     *
+     * @return $this object
+     */
     public function setDate(\DateTimeInterface $date): self
     {
         $this->date = $date;
@@ -55,11 +77,19 @@ class Event
         return $this;
     }
 
+    /**
+     * @return string|null getter
+     */
     public function getPlace(): ?string
     {
         return $this->place;
     }
 
+    /**
+     * @param string $place setter
+     *
+     * @return $this object
+     */
     public function setPlace(string $place): self
     {
         $this->place = $place;
@@ -67,15 +97,31 @@ class Event
         return $this;
     }
 
+    /**
+     * @return string|null getter
+     */
     public function getTitle(): ?string
     {
         return $this->title;
     }
 
+    /**
+     * @param string $title setter
+     *
+     * @return $this object
+     */
     public function setTitle(string $title): self
     {
         $this->title = $title;
 
         return $this;
+    }
+
+    /**
+     * @return string|null return ojb email
+     */
+    public function __toString()
+    {
+        return $this->title;
     }
 }

@@ -1,4 +1,7 @@
 <?php
+/**
+ * Contact controller.
+ */
 
 namespace App\Controller;
 
@@ -13,6 +16,9 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
+/**
+ * Class ContactController.
+ */
 #[Route('/contact')]
 class ContactController extends AbstractController
 {
@@ -28,16 +34,17 @@ class ContactController extends AbstractController
      */
     private TranslatorInterface $translator;
 
-    /**
-     * @param ContactServiceInterface $contactService
-     * @param TranslatorInterface     $translator
-     */
     public function __construct(ContactServiceInterface $contactService, TranslatorInterface $translator)
     {
         $this->contactService = $contactService;
         $this->translator = $translator;
     }
 
+    /**
+     * @param Request $request param
+     *
+     * @return Response return
+     */
     #[Route('/', name: 'app_contact_index', methods: ['GET'])]
     public function index(Request $request): Response
     {
@@ -49,6 +56,12 @@ class ContactController extends AbstractController
         return $this->render('contact/index.html.twig', ['pagination' => $pagination]);
     }
 
+    /**
+     * @param Request           $request           param
+     * @param ContactRepository $contactRepository param
+     *
+     * @return Response return
+     */
     #[Route('/new', name: 'app_contact_new', methods: ['GET', 'POST'])]
     public function new(Request $request, ContactRepository $contactRepository): Response
     {
@@ -68,11 +81,16 @@ class ContactController extends AbstractController
         }
 
         return $this->render(
-            'contact/create.html.twig',
+            'contact/new.html.twig',
             ['form' => $form->createView()]
         );
     }
 
+    /**
+     * @param Contact $contact param
+     *
+     * @return Response return
+     */
     #[Route('/{id}', name: 'app_contact_show', methods: ['GET'])]
     public function show(Contact $contact): Response
     {
@@ -83,13 +101,19 @@ class ContactController extends AbstractController
         );
     }
 
+    /**
+     * @param Request           $request           param
+     * @param Contact           $contact           param
+     * @param ContactRepository $contactRepository param
+     *
+     * @return Response return
+     */
     #[Route('/{id}/edit', name: 'app_contact_edit', methods: ['GET', 'PUT'])]
     public function edit(Request $request, Contact $contact, ContactRepository $contactRepository): Response
     {
         $form = $this->createForm(ContactType::class, $contact, [
             'method' => 'PUT',
             'action' => $this->generateUrl('app_contact_edit', ['id' => $contact->getId()]),
-
         ]);
         $form->handleRequest($request);
 
@@ -116,7 +140,7 @@ class ContactController extends AbstractController
     /**
      * Delete action.
      *
-     * @param Request  $request  HTTP request
+     * @param Request $request HTTP request
      * @param Contact $contact Contact entity
      *
      * @return Response HTTP response

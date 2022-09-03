@@ -166,10 +166,10 @@ class ContactControllerTest extends WebTestCase
     {
         // given
         $this->createAndLoginUser("user_contact4@example.com");
-        $contactContactName = "createdCategor";
+        $contactContactName = "createdContact";
         $contactRepository = static::getContainer()->get(ContactRepository::class);
 
-        $this->httpClient->request('GET', self::TEST_ROUTE . '/create');
+        $this->httpClient->request('GET', self::TEST_ROUTE . '/new');
         // when
         $this->httpClient->submitForm(
             'Zapisz',
@@ -177,21 +177,21 @@ class ContactControllerTest extends WebTestCase
                 [   'name' => $contactContactName,
                     'surname' => $contactContactName,
                     'phone' =>$contactContactName,
-                    'address' => $contactContactNam
+                    'address' => $contactContactName
                 ]
             ]
         );
 
         // then
-        $savedContact = $contactRepository->findOneByTitle($contactContactName);
+        $savedContact = $contactRepository->findOneByName($contactContactName);
         $this->assertEquals(
             $contactContactName,
-            $savedContact->getTitle()
+            $savedContact->getName()
         );
 
 
         $result = $this->httpClient->getResponse();
-        $this->assertEquals(302, $result->getStatusCode());
+        $this->assertEquals(303, $result->getStatusCode());
     }
 
     /**
@@ -263,7 +263,7 @@ class ContactControllerTest extends WebTestCase
         $savedContact = $contactRepository->findOneById($testContactId);
         $this->assertEquals(
             $expectedNewContactTitle,
-            $savedContact->getTitle()
+            $savedContact->getName()
         );
     }
 
@@ -305,6 +305,6 @@ class ContactControllerTest extends WebTestCase
         );
 
         // then
-        $this->assertNull($contactRepository->findOneByTitle('TestContactCreated'));
+        $this->assertNull($contactRepository->findOneByName('TestContactCreated'));
     }
 }

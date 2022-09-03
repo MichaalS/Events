@@ -7,6 +7,7 @@ namespace App\Service;
 
 use App\Entity\Event;
 use App\Repository\EventRepository;
+use Knp\Bundle\PaginatorBundle\Pagination\SlidingPagination;
 use Knp\Component\Pager\Pagination\PaginationInterface;
 use Knp\Component\Pager\PaginatorInterface;
 
@@ -16,9 +17,9 @@ use Knp\Component\Pager\PaginatorInterface;
 class EventService implements EventServiceInterface
 {
     /**
-     * Event repository.
+     * Category service.
      */
-    private EventRepository $eventRepository;
+    private CategoryServiceInterface $categoryService;
 
     /**
      * Paginator.
@@ -26,28 +27,38 @@ class EventService implements EventServiceInterface
     private PaginatorInterface $paginator;
 
     /**
+     * Event repository.
+     */
+    private EventRepository $eventRepository;
+
+    /**
      * Constructor.
      *
-     * @param EventRepository    $eventRepository
-     * @param PaginatorInterface $paginator       Paginator
+     * @param CategoryServiceInterface $categoryService Category service
+     * @param PaginatorInterface       $paginator       Paginator
+     * @param EventRepository          $eventRepository Event repository
      */
-    public function __construct(EventRepository $eventRepository, PaginatorInterface $paginator)
+    public function __construct(CategoryServiceInterface $categoryService, PaginatorInterface $paginator, EventRepository $eventRepository)
     {
-        $this->eventRepository = $eventRepository;
+        $this->categoryService = $categoryService;
         $this->paginator = $paginator;
+        $this->eventRepository = $eventRepository;
     }
 
     /**
      * Get paginated list.
      *
-     * @param int $page Page number
+     * @param int                $page    Page number
+     * @param array<string, int> $filters Filters array
      *
-     * @return PaginationInterface<string, mixed> Paginated list
+     * @return PaginationInterface<SlidingPagination> Paginated list
      */
-    public function getPaginatedList(int $page): PaginationInterface
+    public function getPaginatedList(int $page, array $filters = []): PaginationInterface
     {
+        $filters = $this->prepareFilters($filters);
+
         return $this->paginator->paginate(
-            $this->eventRepository->queryAll(),
+            $this->eventRepository->queryByAuthor($filters),
             $page,
             EventRepository::PAGINATOR_ITEMS_PER_PAGE
         );
@@ -83,5 +94,25 @@ class EventService implements EventServiceInterface
     public function findOneById(int $id): ?Event
     {
         return $this->eventRepository->findOneById($id);
+    }
+
+    /**
+     * Prepare filters for the events list.
+     *
+     * @param array<string, int> $filters Raw filters from request
+     *
+     * @return array<string, object> Result array of filters
+     */
+    private function prepareFilters(array $filters): array
+    {
+        $resultFilters = [];
+        if (!empty($filters['category_id'])) {
+            $category = $this->categoryService->findOneById($filters['category_id']);
+            if (null !== $category) {
+                $resultFilters['category'] = $category;
+            }
+        }
+
+        return $resultFilters;
     }
 }

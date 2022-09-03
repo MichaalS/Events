@@ -9,6 +9,7 @@ use App\Entity\Category;
 use App\Repository\CategoryRepository;
 use App\Repository\EventRepository;
 use DateTimeImmutable;
+use Doctrine\ORM\NonUniqueResultException;
 use Knp\Component\Pager\Pagination\PaginationInterface;
 use Knp\Component\Pager\PaginatorInterface;
 
@@ -25,7 +26,7 @@ class CategoryService implements CategoryServiceInterface
     /**
      * Event repository.
      */
-    private EventRepository $EventRepository;
+    private EventRepository $eventRepository;
 
     /**
      * Paginator.
@@ -36,20 +37,21 @@ class CategoryService implements CategoryServiceInterface
      * Constructor.
      *
      * @param CategoryRepository $categoryRepository Category repository
-     * @param EventRepository    $EventRepository    reposytory
+     * @param EventRepository    $eventRepository    reposytory
      * @param PaginatorInterface $paginator          Paginator
      */
-    public function __construct(CategoryRepository $categoryRepository, EventRepository $EventRepository, PaginatorInterface $paginator)
+    public function __construct(CategoryRepository $categoryRepository, EventRepository $eventRepository, PaginatorInterface $paginator)
     {
         $this->categoryRepository = $categoryRepository;
-        $this->EventRepository = $EventRepository;
+        $this->eventRepository = $eventRepository;
         $this->paginator = $paginator;
     }
 
     /**
      * Get paginated list.
      *
-     * @param int $page Page number
+     * @param int         $page Page number
+     * @param string|null $name name
      *
      * @return PaginationInterface<string, mixed> Paginated list
      */
@@ -93,6 +95,8 @@ class CategoryService implements CategoryServiceInterface
      * @param int $id Category id
      *
      * @return Category|null Category entity
+     *
+     * @throws NonUniqueResultException
      */
     public function findOneById(int $id): ?Category
     {
@@ -108,7 +112,7 @@ class CategoryService implements CategoryServiceInterface
      */
     public function canBeDeleted(Category $category): bool
     {
-        $result = $this->EventRepository->countByCategory($category);
+        $result = $this->eventRepository->countByCategory($category);
 
         return !($result > 0);
     }

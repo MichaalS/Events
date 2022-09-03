@@ -59,7 +59,6 @@ class CategoryRepository extends ServiceEntityRepository
             ->orderBy('category.updated_at', 'DESC');
     }
 
-
     /**
      * Delete entity.
      *

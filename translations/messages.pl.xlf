@@ -28,7 +28,7 @@
             </trans-unit>
             <trans-unit id="message.deleted_successfully">
                 <source>message.deleted_successfully</source>
-                <target>Unicestwienie tego bytu powiodło się ;)</target>
+                <target>rekord usunięty pomyślnie</target>
             </trans-unit>
             <trans-unit id="title.category_details">
                 <source>title.category_details</source>
@@ -105,7 +105,7 @@
             </trans-unit>
             <trans-unit id="title.contact_edit">
                 <source>title.contact_edit</source>
-                <target>Edytuj portfel</target>
+                <target>Edytuj kontakt</target>
             </trans-unit>
             <trans-unit id="label.balance">
                      <source>label.balance</source>
@@ -129,7 +129,7 @@
             </trans-unit>
             <trans-unit id="title.contact_create">
                     <source>title.contact_create</source>
-                <target>Dodaj portfel</target>
+                <target>Dodaj kontakt</target>
             </trans-unit>
             <trans-unit id="title.operation_create">
                 <source>title.operation_create</source>
@@ -411,6 +411,7 @@
                 <source>title.contact_details</source>
                 <target>szczegóły kontaktu</target>
             </trans-unit>
+
         </body>
     </file>
 </xliff>

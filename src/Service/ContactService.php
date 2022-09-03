@@ -73,16 +73,4 @@ class ContactService implements ContactServiceInterface
     {
         $this->contactRepository->delete($contact);
     }
-
-    /**
-     * Find by id.
-     *
-     * @param int $id Contact id
-     *
-     * @return Contact|null Contact entity
-     */
-    public function findOneById(int $id): ?Contact
-    {
-        return $this->contactRepository->findOneById($id);
-    }
 }

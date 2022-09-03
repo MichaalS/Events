@@ -31,27 +31,13 @@ class EventRepository extends ServiceEntityRepository
      */
     public const PAGINATOR_ITEMS_PER_PAGE = 10;
 
+    /**
+     * @param ManagerRegistry $registry param
+     */
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Event::class);
     }
-
-    /**
-     * Query all records.
-     *
-     * @return QueryBuilder Query builder
-     */
-    public function queryAll(): QueryBuilder
-    {
-        return $this->getOrCreateQueryBuilder()
-            ->select(
-                'partial event.{id, place, title}',
-                'partial category.{id, title}'
-            )
-            ->leftJoin('event.category', 'category')
-            ->orderBy('event.title', 'DESC');
-    }
-
 
     /**
      * Delete entity.
@@ -74,7 +60,6 @@ class EventRepository extends ServiceEntityRepository
         $this->_em->persist($event);
         $this->_em->flush();
     }
-
 
     /**
      * Count transaction by category.
@@ -107,5 +92,62 @@ class EventRepository extends ServiceEntityRepository
     private function getOrCreateQueryBuilder(?QueryBuilder $queryBuilder = null): QueryBuilder
     {
         return $queryBuilder ?? $this->createQueryBuilder('event');
+    }
+
+    /**
+     * Query tasks by author.
+     *
+     * @param array<string, object> $filters Filters
+     *
+     * @return QueryBuilder Query builder
+     */
+    public function queryByAuthor(array $filters = []): QueryBuilder
+    {
+        return $this->queryAll($filters);
+    }
+
+    /**
+     * Query all records.
+     *
+     * @param array<string, object> $filters Filters
+     *
+     * @return QueryBuilder Query builder
+     */
+    public function queryAll(array $filters): QueryBuilder
+    {
+        $queryBuilder = $this->getOrCreateQueryBuilder()
+            ->select(
+                'partial event.{id, title, place}',
+                'partial category.{id, title}'
+            )
+            ->join('event.category', 'category')
+            ->orderBy('event.title', 'DESC');
+
+        return $this->applyFiltersToList($queryBuilder, $filters);
+    }
+
+// ...
+
+    /**
+     * Apply filters to paginated list.
+     *
+     * @param QueryBuilder          $queryBuilder Query builder
+     * @param array<string, object> $filters      Filters array
+     *
+     * @return QueryBuilder Query builder
+     */
+    private function applyFiltersToList(QueryBuilder $queryBuilder, array $filters = []): QueryBuilder
+    {
+        if (isset($filters['category']) && $filters['category'] instanceof Category) {
+            $queryBuilder->andWhere('category = :category')
+                ->setParameter('category', $filters['category']);
+        }
+
+        if (isset($filters['tag']) && $filters['tag'] instanceof Tag) {
+            $queryBuilder->andWhere('tags IN (:tag)')
+                ->setParameter('tag', $filters['tag']);
+        }
+
+        return $queryBuilder;
     }
 }

@@ -28,7 +28,7 @@
                     <td>{{ item.title }}</td>
                     <td>{{ item.place }}</td>
                     <td>
-                        <a href="{{ url('category_show', {id: item.category.id}) }}">
+                        <a href="{{ url('app_event_index', {'filters.category_id' : item.category.id}) }}" title="{{ item.category.title }}">
                             {{ item.category.title }}
                         </a>
                     </td>

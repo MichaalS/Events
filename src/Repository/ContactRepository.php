@@ -17,7 +17,6 @@ use Doctrine\Persistence\ManagerRegistry;
  */
 class ContactRepository extends ServiceEntityRepository
 {
-
     /**
      * Items per page.
      *
@@ -29,6 +28,9 @@ class ContactRepository extends ServiceEntityRepository
      */
     public const PAGINATOR_ITEMS_PER_PAGE = 10;
 
+    /**
+     * @param ManagerRegistry $registry param
+     */
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Contact::class);
@@ -45,7 +47,6 @@ class ContactRepository extends ServiceEntityRepository
             ->select('partial contact.{id, surname, address, name, phone}')
             ->orderBy('contact.name', 'DESC');
     }
-
 
     /**
      * Delete entity.

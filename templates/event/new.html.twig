@@ -1,11 +1,6 @@
-{% extends 'base.html.twig' %}
-
-{% block title %}New Event{% endblock %}
-
-{% block body %}
-    <h1>Create new Event</h1>
-
-    {{ include('event/_form.html.twig') }}
-
-    <a href="{{ path('app_event_index') }}">back to list</a>
-{% endblock %}
+{% include 'default/_form.html.twig' with {
+    page_title: 'title.event_create'|trans,
+    form: form,
+    submit_label: 'action.save'|trans,
+    back_to_list_path: 'app_event_index',
+} %}

@@ -22,7 +22,7 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 class CategoryController extends AbstractController
 {
     /**
-     * Category service
+     * Category service.
      */
     private CategoryServiceInterface $categoryService;
 
@@ -42,7 +42,6 @@ class CategoryController extends AbstractController
         $this->categoryService = $taskService;
         $this->translator = $translator;
     }
-
 
     /**
      * Index action.
@@ -150,7 +149,6 @@ class CategoryController extends AbstractController
             ]
         );
     }
-
 
     /**
      * Delete action.

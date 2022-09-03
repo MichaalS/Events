@@ -27,11 +27,20 @@ class UserRepository extends ServiceEntityRepository
      */
     public const PAGINATOR_ITEMS_PER_PAGE = 10;
 
+    /**
+     * @param ManagerRegistry $registry param
+     */
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, User::class);
     }
 
+    /**
+     * @param User $entity param
+     * @param bool $flush  param
+     *
+     * @return void return
+     */
     public function add(User $entity, bool $flush = false): void
     {
         $this->getEntityManager()->persist($entity);
@@ -41,6 +50,12 @@ class UserRepository extends ServiceEntityRepository
         }
     }
 
+    /**
+     * @param User $entity param
+     * @param bool $flush  param
+     *
+     * @return void return
+     */
     public function remove(User $entity, bool $flush = false): void
     {
         $this->getEntityManager()->remove($entity);

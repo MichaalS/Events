@@ -30,7 +30,6 @@ class UserService implements UserServiceInterface
      *
      * @param UserRepository     $userRepository User repository
      * @param PaginatorInterface $paginator      Paginator
-     *
      */
     public function __construct(UserRepository $userRepository, PaginatorInterface $paginator)
     {
