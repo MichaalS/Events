@@ -31,34 +31,42 @@ class ContactType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('name',
-            TextType::class,
-            [
+            ->add(
+                'name',
+                TextType::class,
+                [
                 'label' => 'label.name',
                 'required' => true,
                 'attr' => ['max_length' => 64],
-            ])
-            ->add('surname',
+                ]
+            )
+            ->add(
+                'surname',
                 TextType::class,
                 [
                     'label' => 'label.surname',
                     'required' => true,
                     'attr' => ['max_length' => 64],
-                ])
-            ->add('address',
+                ]
+            )
+            ->add(
+                'address',
                 TextType::class,
                 [
                     'label' => 'label.address',
                     'required' => true,
                     'attr' => ['max_length' => 64],
-                ])
-            ->add('phone',
+                ]
+            )
+            ->add(
+                'phone',
                 TextType::class,
                 [
                     'label' => 'label.phone',
                     'required' => true,
                     'attr' => ['max_length' => 64],
-                ])
+                ]
+            )
         ;
     }
 

@@ -66,6 +66,7 @@ class EventController extends AbstractController
             $request->query->getInt('page', 1),
             $filters
         );
+
         return $this->render('event/index.html.twig', ['paginationFuture' => $paginationFuture, 'paginationNow' => $paginationNow]);
     }
 

@@ -1,5 +1,7 @@
 <?php
-
+/**
+ * User Repository
+ */
 namespace App\Repository;
 
 use App\Entity\User;

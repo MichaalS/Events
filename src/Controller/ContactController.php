@@ -34,6 +34,10 @@ class ContactController extends AbstractController
      */
     private TranslatorInterface $translator;
 
+    /**
+     * @param ContactServiceInterface $contactService param
+     * @param TranslatorInterface     $translator     param
+     */
     public function __construct(ContactServiceInterface $contactService, TranslatorInterface $translator)
     {
         $this->contactService = $contactService;

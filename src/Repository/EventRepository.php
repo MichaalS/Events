@@ -1,5 +1,7 @@
 <?php
-
+/**
+ * Repository Event
+ */
 namespace App\Repository;
 
 use App\Entity\Category;
@@ -83,18 +85,6 @@ class EventRepository extends ServiceEntityRepository
     }
 
     /**
-     * Get or create new query builder.
-     *
-     * @param QueryBuilder|null $queryBuilder Query builder
-     *
-     * @return QueryBuilder Query builder
-     */
-    private function getOrCreateQueryBuilder(?QueryBuilder $queryBuilder = null): QueryBuilder
-    {
-        return $queryBuilder ?? $this->createQueryBuilder('event');
-    }
-
-    /**
      * Query tasks by author.
      *
      * @param array<string, object> $filters Filters
@@ -149,5 +139,17 @@ class EventRepository extends ServiceEntityRepository
         }
 
         return $queryBuilder;
+    }
+
+    /**
+     * Get or create new query builder.
+     *
+     * @param QueryBuilder|null $queryBuilder Query builder
+     *
+     * @return QueryBuilder Query builder
+     */
+    private function getOrCreateQueryBuilder(?QueryBuilder $queryBuilder = null): QueryBuilder
+    {
+        return $queryBuilder ?? $this->createQueryBuilder('event');
     }
 }

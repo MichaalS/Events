@@ -80,6 +80,7 @@ class EventService implements EventServiceInterface
         $queryBilder->andWhere('event.date BETWEEN :sub and :add')
             ->setParameter('add', new \DateTimeImmutable('+7 days'), Types::DATETIME_IMMUTABLE)
             ->setParameter('sub', new \DateTimeImmutable('-7 days'), Types::DATETIME_IMMUTABLE);
+
         return $this->paginator->paginate(
             $queryBilder,
             $page,
@@ -101,6 +102,7 @@ class EventService implements EventServiceInterface
         $queryBilder = $this->eventRepository->queryByAuthor($filters);
         $queryBilder->andWhere('event.date > :now')
             ->setParameter('now', new \DateTimeImmutable('+7 days'), Types::DATETIME_IMMUTABLE);
+
         return $this->paginator->paginate(
             $queryBilder,
             $page,

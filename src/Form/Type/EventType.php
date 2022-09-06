@@ -32,20 +32,24 @@ class EventType extends AbstractType
     {
         $builder
             ->add('date')
-            ->add('place',
+            ->add(
+                'place',
                 TextType::class,
                 [
                     'label' => 'label.place',
                     'required' => true,
                     'attr' => ['max_length' => 64],
-                ])
-            ->add('title',
+                ]
+            )
+            ->add(
+                'title',
                 TextType::class,
                 [
                     'label' => 'label.title',
                     'required' => true,
                     'attr' => ['max_length' => 64],
-                ])
+                ]
+            )
             ->add('category')
         ;
     }
