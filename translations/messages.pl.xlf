@@ -401,6 +401,19 @@
                 <source>title.event_future</source>
                 <target>Nadchodzące wydarzenia</target>
             </trans-unit>
+            <trans-unit id="label.createdAt">
+                <source>label.createdAt</source>
+                <target>Data utworzenia</target>
+            </trans-unit>
+            <trans-unit id="Date">
+                <source>Date</source>
+                <target>Data</target>
+            </trans-unit>
+            <trans-unit id="Category">
+                <source>Category</source>
+                <target>Kategoria</target>
+            </trans-unit>
+
 
         </body>
     </file>

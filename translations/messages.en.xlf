@@ -445,6 +445,14 @@
                 <source>title.event_future</source>
                 <target>event future</target>
             </trans-unit>
+            <trans-unit id="Date">
+                <source>Date</source>
+                <target>Date</target>
+            </trans-unit>
+            <trans-unit id="Category">
+                <source>Category</source>
+                <target>Category</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

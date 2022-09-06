@@ -21,25 +21,16 @@ class EventFixtures extends AbstractBaseFixtures
      */
     public function loadData(ObjectManager $manager): void
     {
-        $this->createMany(20, 'event', function ($i) {
+        $this->createMany(40, 'event', function ($i) {
             $event = new Event();
             $event->setTitle($this->faker->word);
             $event->setCategory($this->getRandomReference('categories'));
-            $event->setDate($this->faker->dateTimeBetween('-7 days', '+7 days'));
+            $event->setDate($this->faker->dateTimeBetween('-7 days', '+14 days'));
             $event->setPlace($this->faker->word);
 
             return $event;
         });
 
-        $this->createMany(20, 'event', function ($i) {
-            $event = new Event();
-            $event->setTitle($this->faker->word);
-            $event->setCategory($this->getRandomReference('categories'));
-            $event->setDate($this->faker->dateTimeBetween('+7 days', '+100 days'));
-            $event->setPlace($this->faker->word);
-
-            return $event;
-        });
 
         $manager->flush();
     }

@@ -127,7 +127,7 @@ class EventController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $eventRepository->add($event, true);
+            $eventRepository->save($event, true);
 
             return $this->redirectToRoute('app_event_index', [], Response::HTTP_SEE_OTHER);
         }
