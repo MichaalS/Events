@@ -22,6 +22,10 @@
                 <td>{{ event.place }}</td>
             </tr>
             <tr>
+                <th>{{ 'label.date'|trans }}</th>
+                <td>{{ event.date|format_date('long') }}</td>
+            </tr>
+            <tr>
                 <th>{{ 'label.category'|trans }}</th>
                 <td>
                     <a href="{{ url('category_show', {id: event.category.id}) }}">

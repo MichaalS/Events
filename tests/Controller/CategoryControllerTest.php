@@ -141,9 +141,8 @@ class CategoryControllerTest extends WebTestCase
         $this->createAndLoginUser("user_category3@example.com");
         $expectedCategory = new Category();
         $expectedCategory->setTitle('Test category');
-        $expectedCategory->setCode('wdaw');
-        $expectedCategory->setCreated_at(new DateTime('now'));
-        $expectedCategory->setUpdated_at(new DateTime('now'));
+        $expectedCategory->setCreatedAt(new DateTime('now'));
+        $expectedCategory->setUpdatedAt(new DateTime('now'));
         $categoryRepository = static::getContainer()->get(CategoryRepository::class);
         $categoryRepository->save($expectedCategory);
 
@@ -177,8 +176,7 @@ class CategoryControllerTest extends WebTestCase
         $this->httpClient->submitForm(
             'Zapisz',
             ['category' =>
-                ['title' => $categoryCategoryName,
-                 'code' => $categoryCategoryName
+                ['title' => $categoryCategoryName
                 ]
             ]
         );
@@ -205,9 +203,8 @@ class CategoryControllerTest extends WebTestCase
         $this->createAndLoginUser("user_category5@example.com");
         $category = new Category();
         $category->setTitle('TestCategory');
-        $category->setCode('TestCategory');
-        $category->setCreated_at(new DateTime('now'));
-        $category->setUpdated_at(new DateTime('now'));
+        $category->setCreatedAt(new DateTime('now'));
+        $category->setUpdatedAt(new DateTime('now'));
         $categoryRepository =
             static::getContainer()->get(CategoryRepository::class);
         $categoryRepository->save($category);
@@ -238,9 +235,8 @@ class CategoryControllerTest extends WebTestCase
             static::getContainer()->get(CategoryRepository::class);
         $testCategory = new Category();
         $testCategory->setTitle('TestCategory');
-        $testCategory->setCode('TestCategory');
-        $testCategory->setCreated_at(new DateTime('now'));
-        $testCategory->setUpdated_at(new DateTime('now'));
+        $testCategory->setCreatedAt(new DateTime('now'));
+        $testCategory->setUpdatedAt(new DateTime('now'));
         $categoryRepository->save($testCategory);
         $testCategoryId = $testCategory->getId();
         $expectedNewCategoryTitle = 'TestCategoryEdit';
@@ -286,9 +282,8 @@ class CategoryControllerTest extends WebTestCase
             static::getContainer()->get(CategoryRepository::class);
         $testCategory = new Category();
         $testCategory->setTitle('TestCategoryCreated');
-        $testCategory->setCode('TestCategoryCreated');
-        $testCategory->setCreated_at(new DateTime('now'));
-        $testCategory->setUpdated_at(new DateTime('now'));
+        $testCategory->setCreatedAt(new DateTime('now'));
+        $testCategory->setUpdatedAt(new DateTime('now'));
         $categoryRepository->save($testCategory);
         $testCategoryId = $testCategory->getId();
 
@@ -315,9 +310,8 @@ class CategoryControllerTest extends WebTestCase
             static::getContainer()->get(CategoryRepository::class);
         $testCategory = new Category();
         $testCategory->setTitle('TestCategoryCreated2');
-        $testCategory->setCode("test code");
-        $testCategory->setUpdated_at(new DateTime('now'));
-        $testCategory->setCreated_at(new DateTime('now'));
+        $testCategory->setUpdatedAt(new DateTime('now'));
+        $testCategory->setCreatedAt(new DateTime('now'));
         $categoryRepository->save($testCategory);
         $testCategoryId = $testCategory->getId();
 

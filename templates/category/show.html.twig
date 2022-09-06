@@ -18,16 +18,12 @@
                 <td>{{ category.title }}</td>
             </tr>
             <tr>
-                <th>{{ 'label.code'|trans }}</th>
-                <td>{{ category.code }}</td>
-            </tr>
-            <tr>
                 <th>{{ 'label.updatedAt'|trans }}</th>
-                <td>{{ category.updated_at|format_date('long') }}</td>
+                <td>{{ category.updatedAt|format_date('long') }}</td>
             </tr>
             <tr>
                 <th>{{ 'label.createdAt'|trans }}</th>
-                <td>{{ category.created_at|format_date('long') }}</td>
+                <td>{{ category.createdAt|format_date('long') }}</td>
             </tr>
 
             </tbody>

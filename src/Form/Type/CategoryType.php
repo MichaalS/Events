@@ -38,15 +38,6 @@ class CategoryType extends AbstractType
                 'attr' => ['max_length' => 64],
             ]
         );
-        $builder->add(
-            'code',
-            TextType::class,
-            [
-                'label' => 'label.code',
-                'required' => true,
-                'attr' => ['max_length' => 64],
-            ]
-        );
     }
 
     /**

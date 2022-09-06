@@ -58,12 +58,15 @@ class EventController extends AbstractController
     public function index(Request $request): Response
     {
         $filters = $this->getFilters($request);
-        $pagination = $this->eventService->getPaginatedList(
+        $paginationFuture = $this->eventService->getPaginatedFutureList(
             $request->query->getInt('page', 1),
             $filters
         );
-
-        return $this->render('event/index.html.twig', ['pagination' => $pagination]);
+        $paginationNow = $this->eventService->getPaginatedNowList(
+            $request->query->getInt('page', 1),
+            $filters
+        );
+        return $this->render('event/index.html.twig', ['paginationFuture' => $paginationFuture, 'paginationNow' => $paginationNow]);
     }
 
     /**

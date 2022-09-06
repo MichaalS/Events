@@ -19,16 +19,13 @@ class Category
     private ?int $id = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
-    private ?DateTimeInterface $created_at = null;
+    private ?DateTimeInterface $createdAt = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
-    private ?DateTimeInterface $updated_at = null;
+    private ?DateTimeInterface $updatedAt = null;
 
     #[ORM\Column(length: 64)]
     private ?string $title = null;
-
-    #[ORM\Column(length: 64)]
-    private ?string $code = null;
 
     /**
      * @return int|null getter ID
@@ -41,19 +38,19 @@ class Category
     /**
      * @return DateTimeInterface|null getter created
      */
-    public function getCreated_at(): ?DateTimeInterface
+    public function getCreatedAt(): ?DateTimeInterface
     {
-        return $this->created_at;
+        return $this->createdAt;
     }
 
     /**
-     * @param DateTimeInterface $created_at setter
+     * @param DateTimeInterface $createdAt setter
      *
      * @return $this this
      */
-    public function setCreated_at(DateTimeInterface $created_at): self
+    public function setCreatedAt(DateTimeInterface $createdAt): self
     {
-        $this->created_at = $created_at;
+        $this->createdAt = $createdAt;
 
         return $this;
     }
@@ -61,19 +58,19 @@ class Category
     /**
      * @return DateTimeInterface|null getter
      */
-    public function getUpdated_at(): ?DateTimeInterface
+    public function getUpdatedAt(): ?DateTimeInterface
     {
-        return $this->updated_at;
+        return $this->updatedAt;
     }
 
     /**
-     * @param DateTimeInterface $updated_at setter
+     * @param DateTimeInterface $updatedAt setter
      *
      * @return $this object
      */
-    public function setUpdated_at(DateTimeInterface $updated_at): self
+    public function setUpdatedAt(DateTimeInterface $updatedAt): self
     {
-        $this->updated_at = $updated_at;
+        $this->updatedAt = $updatedAt;
 
         return $this;
     }
@@ -94,26 +91,6 @@ class Category
     public function setTitle(string $title): self
     {
         $this->title = $title;
-
-        return $this;
-    }
-
-    /**
-     * @return string|null getter
-     */
-    public function getCode(): ?string
-    {
-        return $this->code;
-    }
-
-    /**
-     * @param string $code setter
-     *
-     * @return $this obejct
-     */
-    public function setCode(string $code): self
-    {
-        $this->code = $code;
 
         return $this;
     }

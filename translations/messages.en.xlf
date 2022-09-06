@@ -59,14 +59,6 @@
                 <source>label.updatedAt</source>
                 <target>Updated At</target>
             </trans-unit>
-            <trans-unit id="label.createAt">
-                <source>label.createAt</source>
-                <target>Created At</target>
-            </trans-unit>
-            <trans-unit id="label.updateAt">
-                <source>label.updateAt</source>
-                <target>Updated At</target>
-            </trans-unit>
             <trans-unit id="label.category">
                 <source>label.category</source>
                 <target>Categories</target>
@@ -99,14 +91,6 @@
             <trans-unit id="action.save">
                 <source>action.save</source>
                 <target>Save</target>
-            </trans-unit>
-            <trans-unit id="label.created_at">
-                <source>label.created_at</source>
-                <target>Created At</target>
-            </trans-unit>
-            <trans-unit id="label.updated_at">
-                <source>label.updated_at</source>
-                <target>Updated At</target>
             </trans-unit>
             <trans-unit id="title.constact_list">
                 <source>title.constact_list</source>
@@ -451,6 +435,15 @@
             <trans-unit id="title.contact_details">
                 <source>title.contact_details</source>
                 <target>contact details</target>
+            </trans-unit>
+
+            <trans-unit id="title.event_now">
+                <source>title.event_now</source>
+                <target>event now</target>
+            </trans-unit>
+            <trans-unit id="title.event_future">
+                <source>title.event_future</source>
+                <target>event future</target>
             </trans-unit>
         </body>
     </file>

@@ -7,6 +7,7 @@ namespace App\Service;
 
 use App\Entity\Event;
 use App\Repository\EventRepository;
+use Doctrine\DBAL\Types\Types;
 use Knp\Bundle\PaginatorBundle\Pagination\SlidingPagination;
 use Knp\Component\Pager\Pagination\PaginationInterface;
 use Knp\Component\Pager\PaginatorInterface;
@@ -59,6 +60,49 @@ class EventService implements EventServiceInterface
 
         return $this->paginator->paginate(
             $this->eventRepository->queryByAuthor($filters),
+            $page,
+            EventRepository::PAGINATOR_ITEMS_PER_PAGE
+        );
+    }
+
+    /**
+     * Get paginated list.
+     *
+     * @param int                $page    Page number
+     * @param array<string, int> $filters Filters array
+     *
+     * @return PaginationInterface<SlidingPagination> Paginated list
+     */
+    public function getPaginatedNowList(int $page, array $filters = []): PaginationInterface
+    {
+        $filters = $this->prepareFilters($filters);
+        $queryBilder = $this->eventRepository->queryByAuthor($filters);
+        $queryBilder->andWhere('event.date BETWEEN :sub and :add')
+            ->setParameter('add', new \DateTimeImmutable('+7 days'), Types::DATETIME_IMMUTABLE)
+            ->setParameter('sub', new \DateTimeImmutable('-7 days'), Types::DATETIME_IMMUTABLE);
+        return $this->paginator->paginate(
+            $queryBilder,
+            $page,
+            EventRepository::PAGINATOR_ITEMS_PER_PAGE
+        );
+    }
+
+    /**
+     * Get paginated list.
+     *
+     * @param int                $page    Page number
+     * @param array<string, int> $filters Filters array
+     *
+     * @return PaginationInterface<SlidingPagination> Paginated list
+     */
+    public function getPaginatedFutureList(int $page, array $filters = []): PaginationInterface
+    {
+        $filters = $this->prepareFilters($filters);
+        $queryBilder = $this->eventRepository->queryByAuthor($filters);
+        $queryBilder->andWhere('event.date > :now')
+            ->setParameter('now', new \DateTimeImmutable('+7 days'), Types::DATETIME_IMMUTABLE);
+        return $this->paginator->paginate(
+            $queryBilder,
             $page,
             EventRepository::PAGINATOR_ITEMS_PER_PAGE
         );
