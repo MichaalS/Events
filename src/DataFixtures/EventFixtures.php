@@ -25,7 +25,17 @@ class EventFixtures extends AbstractBaseFixtures
             $event = new Event();
             $event->setTitle($this->faker->word);
             $event->setCategory($this->getRandomReference('categories'));
-            $event->setDate($this->faker->dateTimeBetween('-100 days', '-1 days'));
+            $event->setDate($this->faker->dateTimeBetween('-7 days', '+7 days'));
+            $event->setPlace($this->faker->word);
+
+            return $event;
+        });
+
+        $this->createMany(20, 'event', function ($i) {
+            $event = new Event();
+            $event->setTitle($this->faker->word);
+            $event->setCategory($this->getRandomReference('categories'));
+            $event->setDate($this->faker->dateTimeBetween('+7 days', '+100 days'));
             $event->setPlace($this->faker->word);
 
             return $event;
