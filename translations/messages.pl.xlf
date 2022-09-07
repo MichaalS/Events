@@ -71,7 +71,7 @@
                     <target>Kategorie</target>
             </trans-unit><trans-unit id="label.contact">
                     <source>label.contact</source>
-            <target>Portfele</target>
+            <target>Kontakty</target>
         </trans-unit>
 
 
@@ -106,7 +106,7 @@
             </trans-unit>
             <trans-unit id="title.contact_delete">
                     <source>title.contact_delete</source>
-                    <target>Portfel szczegóły</target>
+                    <target>usuwanie kontaktu</target>
             </trans-unit>
             <trans-unit id="title.contact_create">
                     <source>title.contact_create</source>
@@ -414,6 +414,10 @@
                 <target>Kategoria</target>
             </trans-unit>
 
+            <trans-unit id="title.event_delete">
+                <source>title.event_delete</source>
+                <target>Usuwanie wydarzenia</target>
+            </trans-unit>
 
         </body>
     </file>

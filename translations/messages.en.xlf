@@ -453,6 +453,23 @@
                 <source>Category</source>
                 <target>Category</target>
             </trans-unit>
+            <trans-unit id="message.category_contains_contact">
+                <source>message.category_contains_contact</source>
+                <target>category contains contact</target>
+            </trans-unit>
+            <trans-unit id="title.contact_create">
+                <source>title.contact_create</source>
+                <target>contact create</target>
+            </trans-unit>
+            <trans-unit id="title.contact_edit">
+                <source>title.contact_edit</source>
+                <target>contact edit</target>
+            </trans-unit>
+            <trans-unit id="title.contact_delete">
+                <source>title.contact_delete</source>
+                <target>contact delete</target>
+            </trans-unit>
+
         </body>
     </file>
 </xliff>
