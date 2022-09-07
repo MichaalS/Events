@@ -418,6 +418,10 @@
                 <source>title.event_delete</source>
                 <target>Usuwanie wydarzenia</target>
             </trans-unit>
+            <trans-unit id="title.event_all">
+                <source>title.event_all</source>
+                <target>Wszystkie wydarzenia</target>
+            </trans-unit>
 
         </body>
     </file>

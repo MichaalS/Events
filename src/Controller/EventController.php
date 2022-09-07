@@ -71,6 +71,29 @@ class EventController extends AbstractController
     }
 
     /**
+     * Index action.
+     *
+     * @param Request $request HTTP Request
+     *
+     * @return Response HTTP response
+     */
+    #[Route(
+        '/all',
+        name: 'app_event_all',
+        methods: 'GET'
+    )]
+    public function all(Request $request): Response
+    {
+        $filters = $this->getFilters($request);
+        $pagination = $this->eventService->getPaginatedList(
+            $request->query->getInt('page', 1),
+            $filters
+        );
+
+        return $this->render('event/all.html.twig', ['pagination' => $pagination]);
+    }
+
+    /**
      * @param Request         $request         param
      * @param EventRepository $eventRepository param
      *
