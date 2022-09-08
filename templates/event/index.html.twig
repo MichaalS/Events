@@ -6,7 +6,7 @@
 
 {% block body %}
     <h1>{{ 'title.event_list'|trans }}</h1>
-    {% if paginationNow is defined and paginationNow.items|length  and  paginationFuture is defined and paginationFuture.items|length%}
+    {% if paginationNow is defined and paginationNow.items|length %}
 
         <h2>{{ 'title.event_now'|trans }}</h2>
 
@@ -20,7 +20,7 @@
                 <th>{{ knp_pagination_sortable(paginationNow, 'label.title'|trans, 'event.title') }}</th>
                 <th>{{ knp_pagination_sortable(paginationNow, 'label.place'|trans, 'event.place') }}</th>
                 <th>{{ knp_pagination_sortable(paginationNow, 'label.date'|trans, 'event.date') }}</th>
-                <th>{{ knp_pagination_sortable(paginationNow, 'label.category'|trans, 'event.category') }}</th>
+                <th>{{ knp_pagination_sortable(paginationNow, 'label.category'|trans, 'category.title') }}</th>
                 <th>{{ 'label.action'|trans }}</th>
             </tr>
             </thead>
@@ -54,6 +54,13 @@
             {{ knp_pagination_render(paginationNow) }}
         </div>
 
+        {% else %}
+            {% include 'default/_single_alert_message.html.twig' with {
+                type: 'warning',
+                message: 'message.empty_now_list'|trans
+            } %}
+        {% endif %}
+        {% if paginationFuture is defined and paginationFuture.items|length %}
         <h2>{{ 'title.event_future'|trans }}</h2>
 
         <div class="navigation text-center">
@@ -66,7 +73,7 @@
                 <th>{{ knp_pagination_sortable(paginationFuture, 'label.title'|trans, 'event.title') }}</th>
                 <th>{{ knp_pagination_sortable(paginationFuture, 'label.place'|trans, 'event.place') }}</th>
                 <th>{{ knp_pagination_sortable(paginationFuture, 'label.date'|trans, 'event.date') }}</th>
-                <th>{{ knp_pagination_sortable(paginationFuture, 'label.category'|trans, 'event.category') }}</th>
+                <th>{{ knp_pagination_sortable(paginationFuture, 'label.category'|trans, 'category.title') }}</th>
                 <th>{{ 'label.action'|trans }}</th>
             </tr>
             </thead>
@@ -104,7 +111,7 @@
     {% else %}
         {% include 'default/_single_alert_message.html.twig' with {
             type: 'warning',
-            message: 'message.empty_list'|trans
+            message: 'message.empty_future_list'|trans
         } %}
     {% endif %}
     <div class="btn btn-light">

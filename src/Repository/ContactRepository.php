@@ -1,7 +1,8 @@
 <?php
 /**
- * Repository Contact
+ * Repository Contact.
  */
+
 namespace App\Repository;
 
 use App\Entity\Contact;

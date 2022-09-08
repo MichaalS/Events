@@ -1,7 +1,8 @@
 <?php
 /**
- * Event Entity
+ * Event Entity.
  */
+
 namespace App\Entity;
 
 use App\Repository\EventRepository;

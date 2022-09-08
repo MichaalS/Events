@@ -1,7 +1,8 @@
 <?php
 /**
- * Repository Event
+ * Repository Event.
  */
+
 namespace App\Repository;
 
 use App\Entity\Category;

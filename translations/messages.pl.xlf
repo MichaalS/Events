@@ -423,6 +423,18 @@
                 <target>Wszystkie wydarzenia</target>
             </trans-unit>
 
+            <trans-unit id="message.category_contains_contact">
+                <source>message.category_contains_contact</source>
+                <target>Nie można usunąć kategorii do której są przypisane wydarzenia</target>
+            </trans-unit>
+            <trans-unit id="message.empty_future_list">
+                <source>message.empty_future_list</source>
+                <target>lista nadchodzących wydarzeń jest pusta</target>
+            </trans-unit>
+            <trans-unit id="message.empty_now_list">
+                <source>message.empty_now_list</source>
+                <target>lista obecnych wydarzeń jest pusta</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

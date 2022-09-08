@@ -1,7 +1,8 @@
 <?php
 /**
- * User Repository
+ * User Repository.
  */
+
 namespace App\Repository;
 
 use App\Entity\User;

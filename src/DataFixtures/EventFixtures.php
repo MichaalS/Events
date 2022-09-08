@@ -31,7 +31,6 @@ class EventFixtures extends AbstractBaseFixtures
             return $event;
         });
 
-
         $manager->flush();
     }
 

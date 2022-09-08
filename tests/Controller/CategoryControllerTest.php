@@ -153,7 +153,6 @@ class CategoryControllerTest extends WebTestCase
         // then
         $this->assertEquals(200, $result->getStatusCode());
         $this->assertSelectorTextContains('td', $expectedCategory->getId());
-        // ... more assertions...
     }
 
     //create category
@@ -194,37 +193,7 @@ class CategoryControllerTest extends WebTestCase
     }
 
     /**
-     * @return void
-     */
-    public function testEditCategoryUnauthorizedUser(): void
-    {
-        // given
-        $expectedHttpStatusCode = 200;
-        $this->createAndLoginUser("user_category5@example.com");
-        $category = new Category();
-        $category->setTitle('TestCategory');
-        $category->setCreatedAt(new DateTime('now'));
-        $category->setUpdatedAt(new DateTime('now'));
-        $categoryRepository =
-            static::getContainer()->get(CategoryRepository::class);
-        $categoryRepository->save($category);
-
-        // when
-        $this->httpClient->request('GET', self::TEST_ROUTE . '/' .
-            $category->getId() . '/edit');
-        $actual = $this->httpClient->getResponse();
-
-        // then
-
-        $this->assertEquals(
-            $expectedHttpStatusCode,
-            $actual->getStatusCode()
-        );
-    }
-
-
-    /**
-     * @return void
+     * @return void return
      */
     public function testEditCategory(): void
     {

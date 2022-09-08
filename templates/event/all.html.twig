@@ -20,7 +20,7 @@
                 <th>{{ knp_pagination_sortable(pagination, 'label.title'|trans, 'event.title') }}</th>
                 <th>{{ knp_pagination_sortable(pagination, 'label.place'|trans, 'event.place') }}</th>
                 <th>{{ knp_pagination_sortable(pagination, 'label.date'|trans, 'event.date') }}</th>
-                <th>{{ knp_pagination_sortable(pagination, 'label.category'|trans, 'event.category') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'label.category'|trans, 'category.title') }}</th>
                 <th>{{ 'label.action'|trans }}</th>
             </tr>
             </thead>
@@ -32,7 +32,7 @@
                     <td>{{ item.place }}</td>
                     <td>{{ item.date|format_date('long') }}</td>
                     <td>
-                        <a href="{{ url('app_event_index', {'filters.category_id' : item.category.id}) }}" title="{{ item.category.title }}">
+                        <a href="{{ url('app_event_all', {'filters.category_id' : item.category.id}) }}" title="{{ item.category.title }}">
                             {{ item.category.title }}
                         </a>
                     </td>

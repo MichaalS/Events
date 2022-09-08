@@ -470,6 +470,19 @@
                 <target>contact delete</target>
             </trans-unit>
 
+            <trans-unit id="message.empty_future_list">
+                <source>message.empty_future_list</source>
+                <target>empty future list</target>
+            </trans-unit>
+            <trans-unit id="message.empty_now_list">
+                <source>message.empty_now_list</source>
+                <target>empty now list</target>
+            </trans-unit>
+            <trans-unit id="title.event_all">
+                <source>title.event_all</source>
+                <target>event all</target>
+            </trans-unit>
+
         </body>
     </file>
 </xliff>
