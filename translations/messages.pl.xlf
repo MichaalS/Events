@@ -451,6 +451,11 @@
                 <source>label.sign_in</source>
                 <target>Zaloguj</target>
             </trans-unit>
+
+            <trans-unit id="title.event_create">
+                <source>title.event_create</source>
+                <target>tworzenie wydarzenia</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
