@@ -147,8 +147,11 @@ class EventController extends AbstractController
     public function edit(Request $request, Event $event, EventRepository $eventRepository): Response
     {
         $form = $this->createForm(EventType::class, $event);
-        $form->handleRequest($request);
-
+        try {
+            $form->handleRequest($request);
+        } catch (\Exception $e) {
+            $this->addFlash("error", $this->translator->trans('message.form_error'));
+        }
         if ($form->isSubmitted() && $form->isValid()) {
             $eventRepository->save($event, true);
 

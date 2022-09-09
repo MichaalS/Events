@@ -128,7 +128,11 @@ class CategoryController extends AbstractController
             'method' => 'PUT',
             'action' => $this->generateUrl('app_category_edit', ['id' => $category->getId()]),
         ]);
-        $form->handleRequest($request);
+        try {
+            $form->handleRequest($request);
+        } catch (\Exception $e) {
+            $this->addFlash("error", $this->translator->trans('message.form_error'));
+        }
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->categoryService->save($category);

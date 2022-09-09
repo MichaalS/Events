@@ -119,7 +119,13 @@ class ContactController extends AbstractController
             'method' => 'PUT',
             'action' => $this->generateUrl('app_contact_edit', ['id' => $contact->getId()]),
         ]);
-        $form->handleRequest($request);
+
+        try {
+            $form->handleRequest($request);
+        } catch (\Exception $e) {
+            $this->addFlash("error", $this->translator->trans('message.form_error'));
+        }
+
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->contactService->save($contact);
