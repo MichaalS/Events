@@ -9,6 +9,7 @@ use App\Repository\CategoryRepository;
 use DateTimeInterface;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Category entity.
@@ -28,6 +29,9 @@ class Category
     private ?DateTimeInterface $updatedAt = null;
 
     #[ORM\Column(length: 64)]
+    #[Assert\Type('string')]
+    #[Assert\NotBlank]
+    #[Assert\Length(min: 3, max: 64)]
     private ?string $title = null;
 
     /**

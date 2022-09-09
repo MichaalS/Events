@@ -483,6 +483,22 @@
                 <target>event all</target>
             </trans-unit>
 
+            <trans-unit id="title.log_in">
+                <source>title.log_in</source>
+                <target>log_in</target>
+            </trans-unit>
+            <trans-unit id="label.please_sign_in">
+                <source>label.please_sign_in</source>
+                <target>please_sign_in</target>
+            </trans-unit>
+            <trans-unit id="label.you_are_logged_in_as">
+                <source>label.you_are_logged_in_as</source>
+                <target>you_are_logged_in_as</target>
+            </trans-unit>
+            <trans-unit id="label.sign_in">
+                <source>label.sign_in</source>
+                <target>sign_in</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
