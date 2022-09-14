@@ -150,7 +150,7 @@ class EventController extends AbstractController
         try {
             $form->handleRequest($request);
         } catch (\Exception $e) {
-            $this->addFlash("error", $this->translator->trans('message.form_error'));
+            $this->addFlash('error', $this->translator->trans('message.form_error'));
         }
         if ($form->isSubmitted() && $form->isValid()) {
             $eventRepository->save($event, true);
