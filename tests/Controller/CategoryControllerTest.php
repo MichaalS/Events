@@ -248,6 +248,7 @@ class CategoryControllerTest extends WebTestCase
 
         $categoryRepository =
             static::getContainer()->get(CategoryRepository::class);
+
         $testCategory = new Category();
         $testCategory->setTitle('TestCategoryCreated');
         $testCategory->setCreatedAt(new DateTime('now'));
@@ -263,7 +264,7 @@ class CategoryControllerTest extends WebTestCase
         );
 
         // then
-        $this->assertNull($categoryRepository->findOneByTitle('TestCategoryCreated'));
+        $this->assertNull($categoryRepository->findOneById($testCategoryId));
     }
 
     /**
