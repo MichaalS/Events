@@ -227,7 +227,6 @@ class CategoryControllerTest extends WebTestCase
         );
     }
 
-
     /**
      * @return void
      */

@@ -499,6 +499,11 @@
                 <source>label.sign_in</source>
                 <target>sign_in</target>
             </trans-unit>
+
+            <trans-unit id="action_logout">
+                <source>action_logout</source>
+                <target>logout</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
